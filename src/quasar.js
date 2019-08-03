@@ -17,6 +17,14 @@ import {
   QItem,
   QItemSection,
   QItemLabel,
+  QTabPanels,
+  QTabPanel,
+  QTab,
+  QTabs,
+  QCard,
+  QCardSection,
+  QCardActions,
+  QSeparator
 } from 'quasar'
 
 Vue.use(Quasar, {
@@ -35,6 +43,14 @@ Vue.use(Quasar, {
     QItem,
     QItemSection,
     QItemLabel,
+    QTabPanels,
+    QTabPanel,
+    QTab,
+    QTabs,
+    QCard,
+    QCardSection,
+    QCardActions,
+    QSeparator
   },
   directives: {
   },

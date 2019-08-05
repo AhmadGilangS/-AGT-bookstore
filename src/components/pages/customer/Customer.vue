@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12">
         <div class="q-pa-md row items-start q-gutter-md justify-center" style="margin-top:20px;">
-          <q-card class="my-card oke" v-for="n in 9" style="margin: 15px;">
+          <q-card class="my-card oke" v-for="n in 8" :key="n" style="margin: 15px;">
             <center>
               <div class="zoom-effect">
                 <div class="kotak">

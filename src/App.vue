@@ -5,7 +5,6 @@
       <div id="app">
         <router-view />
       </div>
-      
     </q-page-container>
   </q-layout>
 </template>

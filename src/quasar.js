@@ -17,6 +17,21 @@ import {
   QItem,
   QItemSection,
   QItemLabel,
+  QFooter,
+  QParallax,
+  QPageScroller,
+  QAvatar,
+  QColor,
+  Notify,
+  QToggle,
+  QInput,
+  QForm,
+  QBreadcrumbs,
+  QBreadcrumbsEl,
+  QSpace,
+  QCarousel,
+  QCarouselSlide,
+  QCarouselControl,
   QTabPanels,
   QTabPanel,
   QTab,
@@ -25,9 +40,9 @@ import {
   QCardSection,
   QCardActions,
   QSeparator, 
-  QFooter,
   QBtnDropdown,
-  QImg
+  QImg,
+  ClosePopup
 } from 'quasar'
 
 Vue.use(Quasar, {
@@ -46,6 +61,20 @@ Vue.use(Quasar, {
     QItem,
     QItemSection,
     QItemLabel,
+    QFooter,
+    QParallax,
+    QPageScroller,
+    QAvatar,
+    QColor,
+    QToggle,
+    QInput,
+    QForm,
+    QBreadcrumbs,
+    QBreadcrumbsEl,
+    QSpace,
+    QCarousel,
+    QCarouselSlide,
+    QCarouselControl,
     QTabPanels,
     QTabPanel,
     QTab,
@@ -54,12 +83,13 @@ Vue.use(Quasar, {
     QCardSection,
     QCardActions,
     QSeparator, 
-    QFooter,
     QBtnDropdown,
     QImg
   },
   directives: {
+    ClosePopup
   },
   plugins: {
+    Notify
   }
  })

@@ -41,7 +41,8 @@ import {
   QCardActions,
   QSeparator, 
   QBtnDropdown,
-  QImg
+  QImg,
+  ClosePopup
 } from 'quasar'
 
 Vue.use(Quasar, {
@@ -86,6 +87,7 @@ Vue.use(Quasar, {
     QImg
   },
   directives: {
+    ClosePopup
   },
   plugins: {
     Notify

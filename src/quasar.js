@@ -24,7 +24,9 @@ import {
   QCard,
   QCardSection,
   QCardActions,
-  QSeparator
+  QSeparator, 
+  QFooter,
+  QBtnDropdown  
 } from 'quasar'
 
 Vue.use(Quasar, {
@@ -50,7 +52,9 @@ Vue.use(Quasar, {
     QCard,
     QCardSection,
     QCardActions,
-    QSeparator
+    QSeparator, 
+    QFooter,
+    QBtnDropdown  
   },
   directives: {
   },

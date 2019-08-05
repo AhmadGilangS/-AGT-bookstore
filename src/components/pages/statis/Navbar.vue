@@ -4,31 +4,26 @@
       <q-btn stretch flat label="AGT BOOK" />
 
       <q-space />
-
-      <q-btn-dropdown stretch flat label="Dropdown">
+       <div class="button">
+      <q-btn-dropdown stretch flat label="" icon="person" class="right">
         <q-list>
-          <q-item-label header>Folders</q-item-label>
-          <q-item v-for="n in 3" :key="`x.${n}`" clickable v-close-popup tabindex="0">
-            <q-item-section avatar>
-              <q-avatar icon="folder" color="secondary" text-color="white" />
-            </q-item-section>
+          <q-item-label header>Have Account</q-item-label>
+          <q-item clickable v-close-popup tabindex="0">
+      
             <q-item-section>
-              <q-item-label>Photos</q-item-label>
-              <q-item-label caption>February 22, 2016</q-item-label>
+              <q-item-label>Login</q-item-label> 
+              
             </q-item-section>
             <q-item-section side>
               <q-icon name="info" />
             </q-item-section>
           </q-item>
+
           <q-separator inset spaced />
-          <q-item-label header>Files</q-item-label>
-          <q-item v-for="n in 3" :key="`y.${n}`" clickable v-close-popup tabindex="0">
-            <q-item-section avatar>
-              <q-avatar icon="assignment" color="primary" text-color="white" />
-            </q-item-section>
+          <q-item-label header>Not Registered</q-item-label>
+          <q-item clickable v-close-popup tabindex="0"> 
             <q-item-section>
-              <q-item-label>Vacation</q-item-label>
-              <q-item-label caption>February 22, 2016</q-item-label>
+              <q-item-label>Register</q-item-label> 
             </q-item-section>
             <q-item-section side>
               <q-icon name="info" />
@@ -36,10 +31,14 @@
           </q-item>
         </q-list>
       </q-btn-dropdown>
-      <q-separator dark vertical />
+      </div>
+
+
+      <!-- <q-separator dark vertical />
       <q-btn stretch flat label="Link" />
       <q-separator dark vertical />
-      <q-btn stretch flat label="Link" />
+      <q-btn stretch flat label="Link" /> -->
+      
     </q-toolbar>
 
 </template>
@@ -47,6 +46,24 @@
      
  
 <style>
+
+ .button{
+    width: 100%;
+  }
+  .left{
+    float: left;
+    display: block;
+  }
+  .right{
+    float: right;
+    display: block;
+  }
+.button ul a{
+  padding: 10px;
+  background: rgb(116, 181, 12);
+  color: white;
+}
+
 </style>
 
 <script> 

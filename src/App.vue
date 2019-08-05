@@ -2,10 +2,16 @@
   <q-layout>
     <Navbar />
     <q-page-container>
+<<<<<<< HEAD
       <div id="app">
         <router-view />
       </div>
       
+=======
+      <Navbar />
+      <!-- <Customer /> -->
+      <Homepage />
+>>>>>>> 221c7e3d132169de290095b788eb0cead54efa25
     </q-page-container>
   </q-layout>
 </template>

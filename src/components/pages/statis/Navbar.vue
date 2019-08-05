@@ -62,6 +62,7 @@
   background: rgb(116, 181, 12);
   color: white;
 }
+
 .bg-nav-custom {
   background: #ffeb3b;
   height: 70px;

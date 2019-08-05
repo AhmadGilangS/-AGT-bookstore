@@ -1,8 +1,9 @@
 <template>
   <q-toolbar class="nav-margin bg-nav-custom text-black q-my-md shadow-2" style="margin-top:-1px; ">
     <router-link to="/">
-
-    <q-avatar rounded size="50px" color="#FFeb3b">AGT Book</q-avatar>
+      <q-avatar square size="70px">
+        <img src="../../../assets/logo_ok.png">
+      </q-avatar>
     </router-link>
     <q-space />
 
@@ -64,7 +65,7 @@
 }
 
 .bg-nav-custom {
-  background: #ffeb3b;
+   background:#fff649; /* #ffe470;  #ffeb3b; */
   height: 70px;
 }
 

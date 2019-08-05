@@ -74,11 +74,7 @@ Vue.use(Quasar, {
     QSpace,
     QCarousel,
     QCarouselSlide,
-<<<<<<< HEAD
     QCarouselControl,
-=======
-  QCarouselControl,
->>>>>>> 221c7e3d132169de290095b788eb0cead54efa25
     QTabPanels,
     QTabPanel,
     QTab,

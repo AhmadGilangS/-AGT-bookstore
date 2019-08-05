@@ -1,10 +1,10 @@
 <template>
   <q-layout>
-    <font-awesome-icon icon="user-secret" />
-    <q-page-container>
+     <q-page-container>
       <Navbar />
-      <!-- <Customer /> -->
-      <Homepage />
+      <Customer />
+      <!-- <Homepage />
+      <Login /> -->
     </q-page-container>
   </q-layout>
 </template>

@@ -31,7 +31,17 @@ import {
   QSpace,
   QCarousel,
   QCarouselSlide,
-  QCarouselControl
+  QCarouselControl,
+  QTabPanels,
+  QTabPanel,
+  QTab,
+  QTabs,
+  QCard,
+  QCardSection,
+  QCardActions,
+  QSeparator, 
+  QBtnDropdown,
+  QImg
 } from 'quasar'
 
 Vue.use(Quasar, {
@@ -63,7 +73,17 @@ Vue.use(Quasar, {
     QSpace,
     QCarousel,
     QCarouselSlide,
-  QCarouselControl
+  QCarouselControl,
+    QTabPanels,
+    QTabPanel,
+    QTab,
+    QTabs,
+    QCard,
+    QCardSection,
+    QCardActions,
+    QSeparator, 
+    QBtnDropdown,
+    QImg
   },
   directives: {
   },

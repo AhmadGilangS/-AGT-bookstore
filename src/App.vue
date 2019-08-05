@@ -1,56 +1,38 @@
 <template>
-  <div class="q-pa-md">
-
-    <q-toolbar elevated class="bg-cyan">
-          <q-btn flat round dense icon="assignment_ind" />
-
-          <q-space />
-
-          <q-btn flat round dense icon="sim_card" class="q-mr-xs" />
-          <q-btn flat round dense icon="gamepad" />
-        </q-toolbar>
-
-        <q-toolbar elecated class="bg-cyan" inset>
-          <q-breadcrumbs active-color="white" style="font-size: 16px">
-            <q-breadcrumbs-el label="Home" icon="home" />
-            <q-breadcrumbs-el label="Components" icon="widgets" />
-            <q-breadcrumbs-el label="Toolbar" />
-          </q-breadcrumbs>
-        </q-toolbar>
-
-    <q-layout view="lHh lpr lFf" container style="height: 450px" class="shadow-2 rounded-borders">
-      <q-header >
-        
-      </q-header>
-
-      <q-page-container>
-        <q-page class="q-pa-md">
-         <!-- <Homepage /> -->
-          <Login />
-         
-        </q-page>
-      </q-page-container>
-    </q-layout>
-  </div>
+  <q-layout>
+    <font-awesome-icon icon="user-secret" />
+    <q-page-container>
+      <Navbar />
+      <!-- <Customer /> -->
+      <Homepage />
+    </q-page-container>
+  </q-layout>
 </template>
 
 <script>
-import Homepage from '@/components/pages/home/HelloWorld.vue'
-import Login from '@/components/pages/login/Login.vue'
+import Customer from "@/components/pages/customer/Customer.vue";
+import Homepage from "@/components/pages/home/HelloWorld.vue";
+import Navbar from "@/components/pages/statis/Navbar.vue";
+import Admin from "@/components/pages/admin/Admin.vue";
+import Login from "@/components/pages/login/Login.vue"
+
 export default {
-  name: 'LayoutDefault',
+  name: "LayoutDefault",
 
   components: {
     Homepage,
-    Login
+    Login,
+    Customer,
+    Navbar,
+    Admin
   },
 
-  data () {
+  data() {
     return {
-      leftDrawerOpen: this.$q.platform.is.desktop,
-    }
+      leftDrawerOpen: this.$q.platform.is.desktop
+    };
   }
-}
+};
 </script>
 
 <style>

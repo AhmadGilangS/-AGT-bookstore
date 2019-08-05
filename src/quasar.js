@@ -17,6 +17,21 @@ import {
   QItem,
   QItemSection,
   QItemLabel,
+  QFooter,
+  QParallax,
+  QPageScroller,
+  QAvatar,
+  QColor,
+  Notify,
+  QToggle,
+  QInput,
+  QForm,
+  QBreadcrumbs,
+  QBreadcrumbsEl,
+  QSpace,
+  QCarousel,
+  QCarouselSlide,
+  QCarouselControl
 } from 'quasar'
 
 Vue.use(Quasar, {
@@ -35,9 +50,24 @@ Vue.use(Quasar, {
     QItem,
     QItemSection,
     QItemLabel,
+    QFooter,
+    QParallax,
+    QPageScroller,
+    QAvatar,
+    QColor,
+    QToggle,
+    QInput,
+    QForm,
+    QBreadcrumbs,
+    QBreadcrumbsEl,
+    QSpace,
+    QCarousel,
+    QCarouselSlide,
+  QCarouselControl
   },
   directives: {
   },
   plugins: {
+    Notify
   }
  })

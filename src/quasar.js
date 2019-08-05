@@ -24,7 +24,8 @@ import {
   QCard,
   QCardSection,
   QCardActions,
-  QSeparator
+  QSeparator,
+  QImg
 } from 'quasar'
 
 Vue.use(Quasar, {
@@ -50,7 +51,8 @@ Vue.use(Quasar, {
     QCard,
     QCardSection,
     QCardActions,
-    QSeparator
+    QSeparator,
+    QImg
   },
   directives: {
   },

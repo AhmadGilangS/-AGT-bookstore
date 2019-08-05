@@ -1,19 +1,19 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-page-container>
-      <HelloWorld />
+      <customer />
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
-import test from '@/components/pages/home/HelloWorld.vue'
+import customer from '@/components/pages/customer/Customer.vue'
 
 export default {
   name: 'LayoutDefault',
 
   components: {
-    test
+    customer
   },
 
   data () {

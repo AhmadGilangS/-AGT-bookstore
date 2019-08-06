@@ -1,19 +1,26 @@
 <template>
   <q-toolbar class="nav-margin bg-nav-custom text-black q-my-md shadow-2" style="margin-top:-1px; ">
+<<<<<<< HEAD
     <q-btn stretch flat class="font-black text-weight-bolder" label="AGT BOOK" />
+=======
+    <router-link to="/">
+      <q-avatar square size="70px">
+        <img src="../../../assets/logo_ok.png">
+      </q-avatar>
+    </router-link>
+>>>>>>> ad23fec7b73a1018a1e5f7671a40f6a1d7f2bba3
     <q-space />
 
     <div class="button">
-      <router-link to="/cart">
-        
-      </router-link>
       <q-btn-dropdown stretch flat label icon="person" class="right font-black">
         <q-list>
           <q-separator inset spaced />
           <q-item-label header class="font-black">Have Account</q-item-label>
           <q-item clickable v-close-popup tabindex="0">
             <q-item-section>
-              <q-item-label class="font-black">Login</q-item-label>
+              <router-link to="/login">
+                <q-item-label class="font-black">Login</q-item-label>
+              </router-link>
             </q-item-section>
             <q-item-section side>
               <q-icon name="info" />
@@ -24,7 +31,9 @@
           <q-item-label header class="font-black">Not Registered</q-item-label>
           <q-item clickable v-close-popup tabindex="0">
             <q-item-section>
-              <q-item-label class="font-black">Register</q-item-label>
+              <router-link to="/register">
+                <q-item-label class="font-black">Register</q-item-label>
+              </router-link>
             </q-item-section>
             <q-item-section side>
               <q-icon name="info" />
@@ -32,7 +41,7 @@
           </q-item>
         </q-list>
       </q-btn-dropdown>
-      <q-btn stretch flat icon="shopping_cart"  label="2 items" class="font-black right"></q-btn>
+      <q-btn stretch flat icon="shopping_cart" label="2 items" class="font-black right"></q-btn>
     </div>
 
     <!-- <q-separator dark vertical />
@@ -41,9 +50,6 @@
     <q-btn stretch flat label="Link" />-->
   </q-toolbar>
 </template>
-    
-     
- 
 <style>
 .button {
   width: 100%;
@@ -61,13 +67,13 @@
   background: rgb(116, 181, 12);
   color: white;
 }
-.bg-nav-custom { 
-  background: #FFEB3B;
+
+.bg-nav-custom {
+   background:#fff649; /* #ffe470;  #ffeb3b; */
   height: 70px;
-  
 }
 
-.font-black{
+.font-black {
   color: black;
 }
 </style>

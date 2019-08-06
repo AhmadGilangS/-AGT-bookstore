@@ -1,9 +1,14 @@
 <template>
+<div class="shadow-4">
     <q-form
     @submit="onSubmit"
     @reset="onReset"
-    class="q-gutter-md"   
+    class="absolute-center"
+    style="height: 70%"   
     >
+    <div class="flex-center">
+    <img src="@/assets/logo2.png" style="width:300px; height:200">
+    </div>
 
     <q-input
     filled
@@ -57,14 +62,14 @@
     <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
     </div>
     </q-form>
+</div>
     
 </template>
 
 
 <style>
-
+   
 </style>
-
 
 <script>
 export default {

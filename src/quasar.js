@@ -42,7 +42,7 @@ import {
   QSeparator, 
   QBtnDropdown,
   QImg,
-  ClosePopup
+  ClosePopup,
 } from 'quasar'
 
 Vue.use(Quasar, {

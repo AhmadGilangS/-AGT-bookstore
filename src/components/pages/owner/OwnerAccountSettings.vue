@@ -1,0 +1,147 @@
+
+<template>
+  <div class="">
+    <q-layout view="lHh Lpr lff" container style="height: 750px" class="shadow-2 rounded-borders">
+      <q-header elevated class="bg-black">
+        <q-toolbar>
+          <q-btn flat @click="drawer = !drawer" round dense icon="menu" class="left" />
+          <q-toolbar-title>Header</q-toolbar-title>
+        </q-toolbar>
+      </q-header>
+
+      <q-drawer
+        v-model="drawer"
+        :width="200"
+        :breakpoint="400"
+        show-if-above
+        style="background-image: @/assets/logo1.png;"
+        content-class="bg-grey-3"
+      >
+      <div style="margin-top:150px;">
+        <q-scroll-area style="height: calc(100% - 10px); margin-top: 750px; border-right: 1px solid #ddd">
+          <q-list padding>
+            <q-item clickable active v-ripple>
+              <q-item-section avatar>
+                <q-icon name="account_box" />
+              </q-item-section>
+
+              <q-item-section>
+                Account Settings
+              </q-item-section>
+            </q-item>
+
+            <q-item clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon name="store" />
+              </q-item-section>
+
+              <q-item-section>
+                Book Sales
+              </q-item-section>
+            </q-item>
+
+          </q-list>
+        </q-scroll-area>
+      </div>
+        <q-img class="absolute-top" src="https://cdn.quasar.dev/img/material.png" style="height: 150px">
+          <div class="absolute-bottom bg-transparent">
+            <q-avatar size="56px" class="q-mb-sm">
+              <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+            </q-avatar>
+            <div class="text-weight-bold">Owner AGT Book</div>
+            <div>Selamat Bekerja!</div>
+          </div>
+        </q-img>
+      </q-drawer>
+
+      <q-page-container>
+          <div class="shadow-4">
+            <q-form
+              @submit="onSubmit"
+              @reset="onReset"
+              class="absolute-center"
+              style="height: 70%"   
+            >
+            <div class="flex-center">
+              <img src="@/assets/logo2.png" style="width:300px; height:200">
+            </div>
+            <q-input
+            filled
+            v-model="fullname"
+            label="Fullname *"
+            hint="User Fullname"
+            lazy-rules
+            :rules="[ val => val && val.length > 0 || 'Please type something']"
+            />
+
+            <q-input
+            filled
+            v-model="email"
+            label="Email Address *"
+            hint="User Email"
+            lazy-rules
+            :rules="[ val => val && val.length > 0 || 'Please type something']"
+            />
+
+            <q-input
+            filled
+            v-model="password"
+            label="Password *"
+            hint="User Password"
+            lazy-rules
+            :rules="[ val => val && val.length > 0 || 'Please type something']"
+            />
+
+            <q-input
+            filled
+            type="number"
+            v-model="phone"
+            label="Phone number *"
+            hint="Phone Number"
+            lazy-rules
+            :rules="[ val => val.length <= 12 || 'Please type maximum 12 number']"
+            />
+
+            <q-input
+            filled
+            v-model="address"
+            label="Address *"
+            hint="User Address"
+            lazy-rules
+            :rules="[ val => val && val.length > 0 || 'Please type something']"
+            />
+
+            <q-toggle v-model="accept" label="I accept the license and terms" />
+            <div>
+            <q-btn label="Submit" type="submit" color="primary"/>
+            <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
+            </div>
+            </q-form>
+        </div>
+        <q-page padding>
+           
+        </q-page>
+      </q-page-container>
+    </q-layout>
+  </div>
+</template>     
+
+
+<style>
+
+
+
+
+</style>
+
+
+
+<script>
+export default {
+  data () {
+    return {
+      drawer: true
+    }
+  }
+}
+</script>

@@ -16,9 +16,9 @@
         show-if-above
         style="background-image: @/assets/logo1.png;"
         content-class="bg-grey-3"
-      >
-      <div style="margin-top:150px;">
-        <q-scroll-area style="height: calc(100% - 10px); margin-top: 750px; border-right: 1px solid #ddd">
+      >      
+      <div style="margin-top:180px;">
+        <!-- <q-scroll-area style="height: calc(100% - 10px); margin-top: 750px; border-right: 1px solid #ddd"> -->
           <q-list padding>
             <q-item clickable active v-ripple>
               <q-item-section avatar>
@@ -50,20 +50,30 @@
               </q-item-section>
             </q-item>
           </q-list>
-        </q-scroll-area>
+        <!-- </q-scroll-area> -->
       </div>
-        <q-img class="absolute-top" src="https://cdn.quasar.dev/img/material.png" style="height: 150px">
+        <div class="absolute-top" > 
+          <img src="@/assets/bg-ava-cms.png" style="height: 165px">
+          <div style="margin-top:-30px; ">
           <div class="absolute-bottom bg-transparent">
             <q-avatar size="56px" class="q-mb-sm">
               <img src="@/assets/logo1.png">
             </q-avatar>
-            <div class="text-weight-bold">Admin AGT Book</div>
-            <div>Selamat bekerja!</div>
+            <div class="text-weight-bold font-white">Admin AGT Book</div>
+            <div class="font-white">Selamat Bekerja!</div>
           </div>
-        </q-img>
+          </div>
+        </div>
       </q-drawer>
 
-      <q-page-container> 
+
+      <q-page-container>
+        <div class="bg-primary text-white shadow-2 row" style="">
+          
+          <h5>&nbsp;&nbsp;&nbsp;&nbsp;Admin Customer Order</h5>
+        <br>
+        <br>
+        </div> 
 
         <q-page padding>
            

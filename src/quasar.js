@@ -43,6 +43,12 @@ import {
   QBtnDropdown,
   QImg,
   ClosePopup,
+  QPopupEdit,
+  QScrollArea, 
+  QTable,
+  QTh,
+  QTr,
+  QTd
 } from 'quasar'
 
 Vue.use(Quasar, {
@@ -84,7 +90,13 @@ Vue.use(Quasar, {
     QCardActions,
     QSeparator, 
     QBtnDropdown,
-    QImg
+    QImg,
+    QPopupEdit,
+    QScrollArea,
+    QTable, 
+    QTh,
+    QTr,
+    QTd
   },
   directives: {
     ClosePopup

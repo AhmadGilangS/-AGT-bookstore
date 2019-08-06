@@ -1,6 +1,6 @@
 <template>
   <q-layout>
-    <AdminAccountSettings />
+    <OwnerBookSales />
     <!-- <Navbar /> -->
     <q-page-container>
       <!-- <div id="app">
@@ -17,6 +17,7 @@ import AdminCostumerOrder from "@/components/pages/admin/AdminCostumerOrder.vue"
 import AdminOrderReceipt from "@/components/pages/admin/AdminOrderReceipt.vue";
 import OwnerAccountSettings from "@/components/pages/owner/OwnerAccountSettings.vue";
 import OwnerBookSales from "@/components/pages/owner/OwnerBookSales.vue";
+
 
 export default {
   name: "LayoutDefault",

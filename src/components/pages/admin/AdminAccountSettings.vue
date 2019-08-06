@@ -1,7 +1,6 @@
-
 <template>
   <div class="">
-    <q-layout view="lHh Lpr lff" container style="height: 750px" class="shadow-2 rounded-borders">
+    <q-layout view="lHh Lpr lff" container style="height: 650px" class="shadow-2 rounded-borders">
       <q-header elevated class="bg-black">
         <q-toolbar>
           <q-btn flat @click="drawer = !drawer" round dense icon="menu" class="left" />
@@ -17,8 +16,8 @@
         style="background-image: @/assets/logo1.png;"
         content-class="bg-grey-3"
       >
-      <div style="margin-top:150px;">
-        <q-scroll-area style="height: calc(100% - 10px); margin-top: 750px; border-right: 1px solid #ddd">
+      <div style="margin-top:180px;">
+        <!-- <q-scroll-area style="height: calc(100% - 10px); margin-top: 750px; border-right: 1px solid #ddd"> -->
           <q-list padding>
             <q-item clickable active v-ripple>
               <q-item-section avatar>
@@ -50,96 +49,108 @@
               </q-item-section>
             </q-item>
           </q-list>
-        </q-scroll-area>
+        <!-- </q-scroll-area> -->
       </div>
-        <q-img class="absolute-top" src="https://cdn.quasar.dev/img/material.png" style="height: 150px">
+        <div class="absolute-top" > 
+          <img src="@/assets/bg-ava-cms.png" style="height: 165px">
+          <div style="margin-top:-30px; ">
           <div class="absolute-bottom bg-transparent">
             <q-avatar size="56px" class="q-mb-sm">
               <img src="@/assets/logo1.png">
             </q-avatar>
-            <div class="text-weight-bold">Admin AGT Book</div>
-            <div>Selamat bekerja!</div>
+            <div class="text-weight-bold font-white">Admin AGT Book</div>
+            <div class="font-white">Selamat Bekerja!</div>
           </div>
-        </q-img>
+          </div>
+        </div>
       </q-drawer>
 
+
       <q-page-container>
-          <div class="shadow-4">
-            <q-form
-              @submit="onSubmit"
-              @reset="onReset"
-              class="absolute-center"
-              style="height: 70%"   
-            >
-            <div class="flex-center">
-              <img src="@/assets/logo2.png" style="width:300px; height:200">
-            </div>
-            <q-input
-            filled
-            v-model="fullname"
-            label="Fullname *"
-            hint="User Fullname"
-            lazy-rules
-            :rules="[ val => val && val.length > 0 || 'Please type something']"
-            />
-
-            <q-input
-            filled
-            v-model="email"
-            label="Email Address *"
-            hint="User Email"
-            lazy-rules
-            :rules="[ val => val && val.length > 0 || 'Please type something']"
-            />
-
-            <q-input
-            filled
-            v-model="password"
-            label="Password *"
-            hint="User Password"
-            lazy-rules
-            :rules="[ val => val && val.length > 0 || 'Please type something']"
-            />
-
-            <q-input
-            filled
-            type="number"
-            v-model="phone"
-            label="Phone number *"
-            hint="Phone Number"
-            lazy-rules
-            :rules="[ val => val.length <= 12 || 'Please type maximum 12 number']"
-            />
-
-            <q-input
-            filled
-            v-model="address"
-            label="Address *"
-            hint="User Address"
-            lazy-rules
-            :rules="[ val => val && val.length > 0 || 'Please type something']"
-            />
-
-            <q-toggle v-model="accept" label="I accept the license and terms" />
-            <div>
-            <q-btn label="Submit" type="submit" color="primary"/>
-            <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
-            </div>
-            </q-form>
+           <div class="bg-primary text-white shadow-2 row" style="">
+          
+          <h5>&nbsp;&nbsp;&nbsp;&nbsp;Admin Account Settings</h5>
+        <br>
+        <br>
         </div>
+        <div class="flex flex-center">
+              <q-form
+            @submit="onSubmit"
+            @reset="onReset"
+            class="q-gutter-md"
+          >
+            <q-input
+              filled
+              v-model="fullname"
+              label="Fullname *"
+              hint="User Fullname"
+              lazy-rules
+              :rules="[ val => val && val.length > 0 || 'Please type something']"
+              />
 
+              <q-input
+              filled
+              v-model="email"
+              label="Email Address *"
+              hint="User Email"
+              lazy-rules
+              :rules="[ val => val && val.length > 0 || 'Please type something']"
+              />
+
+              <q-input
+              filled
+              v-model="password"
+              label="Password *"
+              hint="User Password"
+              lazy-rules
+              :rules="[ val => val && val.length > 0 || 'Please type something']"
+              />
+
+              <q-input
+              filled
+              type="number"
+              v-model="phone"
+              label="Phone number *"
+              hint="Phone Number"
+              lazy-rules
+              :rules="[ val => val.length <= 12 || 'Please type maximum 12 number']"
+              />
+
+              <q-input
+              filled
+              v-model="address"
+              label="Address *"
+              hint="User Address"
+              lazy-rules
+              :rules="[ val => val && val.length > 0 || 'Please type something']"
+              />
+
+              <q-toggle v-model="accept" label="I accept the license and terms" />
+              <div>
+              <q-btn label="Submit" type="submit" color="primary"/>
+              <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
+            </div>
+          </q-form>
         <q-page padding>
            
         </q-page>
+        </div>
       </q-page-container>
     </q-layout>
   </div>
+
+  
+
+
+
 </template>     
 
 
 <style>
 
-
+.font-white{
+  color: white;
+}
 
 
 </style>
@@ -147,11 +158,53 @@
 
 
 <script>
+
 export default {
   data () {
     return {
-      drawer: true
+      name: null,
+      age: null,
+      fullname:'',
+      email:'',
+      password:'',
+      phone:'',
+      address:'',
+      accept:'true',
+      
+      drawer: true, 
+
+      accept: false
+    }
+  },
+
+  methods: {
+    onSubmit () {
+      if (this.accept !== true) {
+        this.$q.notify({
+          color: 'red-5',
+          textColor: 'white',
+          icon: 'fas fa-exclamation-triangle',
+          message: 'You need to accept the license and terms first'
+        })
+      }
+      else {
+        this.$q.notify({
+          color: 'green-4',
+          textColor: 'white',
+          icon: 'fas fa-check-circle',
+          message: 'Submitted'
+        })
+      }
+    },
+
+    onReset () {
+      this.firstName = null
+      this.lastName = null
+      this.email = null
+      this.phone = null
+      this.accept = false
     }
   }
 }
+ 
 </script>

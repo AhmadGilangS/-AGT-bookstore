@@ -1,9 +1,18 @@
 <template>
   <q-page>
-    <q-btn @click="showCart = !showCart" v-show="!verified" />
-    {{ products.length + (products.length > 1 || products.length === 0 ? " items" : " item") }}
+    <q-btn class="kanan tetep" @click="verified = true" v-show="!verified" icon="shopping_cart" :label="products.length" />
+
+    <!-- <q-btn
+      class="kanan tetep"
+      @click="verified= true"
+      v-show="!verified"
+      icon="shopping_cart"
+      :label="products.length"
+    /> -->
+
+    <!-- {{ products.length + (products.length > 1 || products.length === 0 ? " items" : " item") }} -->
     <div class="row">
-      <div class="col-12">
+      <div class="col-12" v-show="!verified">
         <div class="q-pa-md row items-start q-gutter-md justify-center" style="margin-top:20px;">
           <q-card
             class="my-card oke"
@@ -14,7 +23,7 @@
             <center>
               <div class="zoom-effect">
                 <div class="kotak">
-                  <img :src="getImgUrl(product.gambarProduct)" v-bind:alt="product">
+                  <img :src="getImgUrl(product.gambarProduct)" v-bind:alt="product" />
                 </div>
               </div>
               <q-card-section class="deskripsi">
@@ -35,12 +44,28 @@
           </q-card>
         </div>
       </div>
+
+      <div class=".col-md-6 .offset-md-3" v-show="verified">
+        <div v-for="productnya in products" :key="productnya.id">
+          <strong>{{ productnya.nameProduct }}</strong> -
+          <strong>{{ productnya.quantity }}</strong> -
+          <strong>{{ productnya.hargaProduct * productnya.quantity }}</strong>
+        </div>
+      </div>
       <!-- <div class="col-4"></div> -->
     </div>
   </q-page>
 </template>
 
 <style lang="stylus" scoped>
+.kanan {
+  float: right;
+}
+
+.tetep {
+  position: fixed;
+}
+
 .gambar {
   height: 200px;
 }
@@ -107,14 +132,14 @@ export default {
     total() {
       var total = 0;
       for (var i = 0; i < this.products.length; i++) {
-        total += this.products[i].price;
+        total += this.products[i].hargaProduct;
       }
       return total;
     }
   },
   methods: {
     getImgUrl(pic) {
-      return require('../../../assets/book/buku'+pic+'.png')
+      return require("../../../assets/book/buku" + pic + ".png");
     },
     addToCart(product) {
       product.quantity += 1;

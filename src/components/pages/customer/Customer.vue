@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <q-btn @click="showCart = !shoCart" v-show="!verified" />
+    <q-btn @click="showCart = !showCart" v-show="!verified" />
     {{ products.length + (products.length > 1 || products.length === 0 ? " items" : " item") }}
     <div class="row">
       <div class="col-12">

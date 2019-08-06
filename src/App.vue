@@ -1,11 +1,11 @@
 <template>
   <q-layout>
-    <AdminAccountSettings />
-    <!-- <Navbar /> -->
+    <!-- <AdminAccountSettings /> -->
+    <Navbar />
     <q-page-container>
-      <!-- <div id="app">
+      <div id="app">
         <router-view />
-      </div> -->
+      </div>
     </q-page-container>
   </q-layout>
 </template>

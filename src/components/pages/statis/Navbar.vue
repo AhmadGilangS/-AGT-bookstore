@@ -1,6 +1,6 @@
 <template>
   <q-toolbar class="nav-margin bg-nav-custom text-black q-my-md shadow-2" style="margin-top:-1px; ">
-    <router-link to="/">
+    <router-link class="a" to="/">
       <q-btn stretch flat class="font-black text-weight-bolder" label="AGT BOOK" />
     </router-link>
     <q-space />
@@ -26,7 +26,7 @@
           <q-item clickable v-close-popup tabindex="0">
             <q-item-section>
               <router-link to="/register">
-                <q-item-label class="font-black">Register</q-item-label>
+                <q-item-label class="font-black">Registers</q-item-label>
               </router-link>
             </q-item-section>
             <q-item-section side>
@@ -36,7 +36,9 @@
         </q-list>
       </q-btn-dropdown>
       <q-btn stretch flat icon="shopping_cart" label="2 items" class="font-black right"></q-btn>
-      <router-link to="/catalog">Catalog</router-link>
+      <router-link class="a" to="/catalog">
+      <q-btn stretch flat label="Catalog" class="font-black-weight right"></q-btn>
+      </router-link>
     </div>
 
     <!-- <q-separator dark vertical />
@@ -71,6 +73,13 @@
 .font-black {
   color: black;
 }
+
+
+.a{
+  color: black;
+}
+
+
 </style>
 
 <script>

@@ -42,7 +42,7 @@ import {
   QSeparator, 
   QBtnDropdown,
   QImg,
-  ClosePopup
+  ClosePopup,
 } from 'quasar'
 
 Vue.use(Quasar, {
@@ -74,11 +74,7 @@ Vue.use(Quasar, {
     QSpace,
     QCarousel,
     QCarouselSlide,
-<<<<<<< HEAD
     QCarouselControl,
-=======
-  QCarouselControl,
->>>>>>> 41d918f64f081665ccb362c5724ad545ca68d4e2
     QTabPanels,
     QTabPanel,
     QTab,

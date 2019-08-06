@@ -1,22 +1,33 @@
 <template>
   <q-layout>
-    <Navbar />
+    <AdminAccountSettings />
+    <!-- <Navbar /> -->
     <q-page-container>
-      <div id="app">
+      <!-- <div id="app">
         <router-view />
-      </div>
+      </div> -->
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
 import Navbar from "@/components/pages/statis/Navbar.vue";
+import AdminAccountSettings from "@/components/pages/admin/AdminAccountSettings.vue";
+import AdminCostumerOrder from "@/components/pages/admin/AdminCostumerOrder.vue";
+import AdminOrderReceipt from "@/components/pages/admin/AdminOrderReceipt.vue";
+import OwnerAccountSettings from "@/components/pages/owner/OwnerAccountSettings.vue";
+import OwnerBookSales from "@/components/pages/owner/OwnerBookSales.vue";
 
 export default {
   name: "LayoutDefault",
 
   components: {
-    Navbar
+    Navbar,
+    AdminAccountSettings,
+    AdminCostumerOrder,
+    AdminOrderReceipt,
+    OwnerBookSales,
+    OwnerAccountSettings
   },
 
   data() {

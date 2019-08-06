@@ -13,9 +13,9 @@
           >
             <center>
               <div class="zoom-effect">
-                <div
-                  class="kotak"
-                ><img :src="product.gambarProduct" /></div>
+                <div class="kotak">
+                  <img :src="getImgUrl(product.gambarProduct)" v-bind:alt="product">
+                </div>
               </div>
               <q-card-section class="deskripsi">
                 <div class="text-h6">{{product.nameProduct}}</div>
@@ -23,14 +23,6 @@
               </q-card-section>
 
               <div class="aksi">
-                <!-- <q-btn
-                  align="around"
-                  class="btn-fixed-width"
-                  color="white"
-                  outline-color="black"
-                  label="Add to Cart"
-                  icon="add"
-                />-->
                 <q-btn
                   @click="addToCart(product)"
                   label="add to cart"
@@ -121,6 +113,9 @@ export default {
     }
   },
   methods: {
+    getImgUrl(pic) {
+      return require('../../../assets/book/buku'+pic+'.png')
+    },
     addToCart(product) {
       product.quantity += 1;
       this.products.push(product);

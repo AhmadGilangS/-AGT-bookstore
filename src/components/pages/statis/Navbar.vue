@@ -1,14 +1,8 @@
 <template>
   <q-toolbar class="nav-margin bg-nav-custom text-black q-my-md shadow-2" style="margin-top:-1px; ">
-<<<<<<< HEAD
-    <q-btn stretch flat class="font-black text-weight-bolder" label="AGT BOOK" />
-=======
     <router-link to="/">
-      <q-avatar square size="70px">
-        <img src="../../../assets/logo_ok.png">
-      </q-avatar>
+      <q-btn stretch flat class="font-black text-weight-bolder" label="AGT BOOK" />
     </router-link>
->>>>>>> ad23fec7b73a1018a1e5f7671a40f6a1d7f2bba3
     <q-space />
 
     <div class="button">

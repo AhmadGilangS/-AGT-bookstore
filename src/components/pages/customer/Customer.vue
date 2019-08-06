@@ -1,19 +1,25 @@
 <template>
   <q-page>
+    <q-btn @click="showCart = !shoCart" v-show="!verified" />
+    {{ products.length + (products.length > 1 || products.length === 0 ? " items" : " item") }}
     <div class="row">
       <div class="col-12">
         <div class="q-pa-md row items-start q-gutter-md justify-center" style="margin-top:20px;">
-          <q-card class="my-card oke" v-for="n in 8" :key="n" style="margin: 15px;">
+          <q-card
+            class="my-card oke"
+            v-for="product in dataProduct"
+            :key="product.id"
+            style="margin: 15px;"
+          >
             <center>
               <div class="zoom-effect">
-                <div class="kotak">
-                  <img src="..\..\..\assets\fisika.png" />
-                </div>
+                <div
+                  class="kotak"
+                ><img :src="product.gambarProduct" /></div>
               </div>
-
               <q-card-section class="deskripsi">
-                <div class="text-h6">Buku Hantu</div>
-                <div class="text-subtitle2">by John Doe</div>
+                <div class="text-h6">{{product.nameProduct}}</div>
+                <div class="text-subtitle2">Rp. {{product.hargaProduct}}</div>
               </q-card-section>
 
               <div class="aksi">
@@ -24,10 +30,12 @@
                   outline-color="black"
                   label="Add to Cart"
                   icon="add"
-                /> -->
+                />-->
                 <q-btn
+                  @click="addToCart(product)"
                   label="add to cart"
-                  outline color="black"
+                  outline
+                  color="black"
                   icon="add"
                 />
               </div>
@@ -41,7 +49,6 @@
 </template>
 
 <style lang="stylus" scoped>
-
 .gambar {
   height: 200px;
 }
@@ -89,14 +96,56 @@
 </style>
 
 <script>
+import product_api from "../../../api/product/index";
+
 export default {
   name: "Customer",
 
   data() {
     return {
-      lorem:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      dataProduct: [],
+      products: [],
+      showCart: false,
+      verified: false,
+      quantity: 1
     };
+  },
+
+  computed: {
+    total() {
+      var total = 0;
+      for (var i = 0; i < this.products.length; i++) {
+        total += this.products[i].price;
+      }
+      return total;
+    }
+  },
+  methods: {
+    addToCart(product) {
+      product.quantity += 1;
+      this.products.push(product);
+    },
+    removeFromCart(product) {
+      product.quantity -= 1;
+      this.products.splice(this.products.indexOf(product), 1);
+    }
+  },
+
+  beforeCreate() {
+    let self = this;
+
+    product_api
+      .getAllProduct(window)
+      .then(function(datas) {
+        return datas;
+      })
+      .then(function(res) {
+        console.log(res);
+        self.dataProduct = res;
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
   }
 };
 </script>

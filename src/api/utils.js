@@ -1,10 +1,11 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:8888/api/v1';
+//const API_URL_SB = 'http://localhost:8888/api/v1';
+const API_URL_LB = 'http://localhost:3000/api/'
 
-export function getApiNoAuth(){
+export function getApiNoAuthLB(){
     return axios.create({
-        baseURL: API_URL,
+        baseURL: API_URL_LB,
         timeout: 10000,
         withCredentials: true,
         headers: {
@@ -14,14 +15,14 @@ export function getApiNoAuth(){
     })
 }
 
-export function getApi(token, params){
+export function getApiLB(token, params){
     if(params){ params.access_token = token } else {
         params = {
             access_token: token
         }
     }
     return axios.create({
-        baseURL: API_URL,
+        baseURL: API_URL_LB,
         timeout: 100000,
         withCredentials: true,
         params: params,

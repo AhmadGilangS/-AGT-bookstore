@@ -2,9 +2,9 @@
   <q-layout>
     <font-awesome-icon icon="user-secret" />
     <q-page-container>
-      <Navbar />
+      <!-- <Navbar /> -->
       <!-- <Customer /> -->
-      <Homepage />
+      <Admin />
     </q-page-container>
   </q-layout>
 </template>

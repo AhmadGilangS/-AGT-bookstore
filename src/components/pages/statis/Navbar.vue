@@ -1,6 +1,6 @@
 <template>
   <q-toolbar class="nav-margin bg-nav-custom text-black q-my-md shadow-2" style="margin-top:-1px; ">
-    <q-btn stretch flat style="font-weight: bold;" class="font-black" label="AGT BOOK" />
+    <q-btn stretch flat class="font-black text-weight-bolder" label="AGT BOOK" />
     <q-space />
 
     <div class="button">

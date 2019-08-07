@@ -48,7 +48,8 @@ import {
   QTable,
   QTh,
   QTr,
-  QTd
+  QTd,
+  QPageSticky
 } from 'quasar'
 
 Vue.use(Quasar, {
@@ -96,7 +97,8 @@ Vue.use(Quasar, {
     QTable, 
     QTh,
     QTr,
-    QTd
+    QTd,
+    QPageSticky
   },
   directives: {
     ClosePopup

@@ -1,4 +1,3 @@
-
 <template>
   <div class="">
     <q-layout view="lHh Lpr lff" container style="height: 750px" class="shadow-2 rounded-borders">

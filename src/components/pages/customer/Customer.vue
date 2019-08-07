@@ -1,116 +1,65 @@
 <template>
   <q-page>
+    <div>
+      <q-btn
+        id="show-modal"
+        color="orange"
+        class="floatingchart"
+        @click="layer2 = !layer2"
+        v-show="layer1"
+        icon="shopping_cart"
+        :label="products.length"
+      />
+    </div>
 
-    <q-btn
-      id="show-modal"
-       color= 'orange'
-      class="floatingchart" 
-      @click="showCart = !showCart" 
-      v-show="!verified"
-      :label="products.length"
-      icon="shopping_cart"
-
-    />
-
-    <!-- <div class="cart" v-show="showCart">
-      <div v-show="products.length > 0">
-          <table class="table1" >
-            <tr>
-              <th>Nama Barang</th>
-              <th>Kuantiti</th>
-              <th>Jumlah</th>
-              <th>Batalkan</th>
-            </tr>
-          </table>
-          <table class="table1" >
-            <div v-for="productCart in products" :key="productCart.id">
-              <tr>
-                <td><center>{{ productCart.nameProduct }}</center></td>
-                <td><center>{{ productCart.quantity }}</center></td>
-                <td><center>Rp. {{ productCart.hargaProduct * productCart.quantity }}</center></td>
-                <td><center><q-btn icon="delete_forever" @click="removeFromCart(productCart)"></q-btn></center></td>
-              </tr>
-            </div>
-          </table>
-          <q-btn color="blue" @click="verified = true, showCart = false">Check out</q-btn>
-        </div>
-        <div v-show="products.length===0">
-          <p>Your Cart is Empty!</p>
-        </div>
-    </div>  -->
-      <!-- !!!!!!!!!!!!!!! -->
-
-    <!-- <div class="cart" v-show="showCart">
+    <div class="cart" v-show="layer2">
       <div v-show="products.length > 0">
         <div class="row">
-          <div class="col-md-3">Product Name</div> 
-          <div class="col-md-3">Quantity</div> 
-          <div class="col-md-3">Price</div> 
-          <div class="col-md-3">Cancel</div> 
+          <div class="col-md-3">
+            <b>Product Name</b>
+          </div>
+          <div class="col-md-3">
+            <b>Quantity</b>
+          </div>
+          <div class="col-md-3">
+            <b>Price</b>
+          </div>
+          <div class="col-md-3">
+            <b>Cancel</b>
+          </div>
         </div>
-        <div class="row">
-            <div v-for="productCart in products" :key="productCart.id">
-              <div class="col-md-3">{{ productCart.nameProduct }}</div> 
-              <div class="col-md-3">{{ productCart.quantity }}</div> 
-              <div class="col-md-3">Rp. {{ productCart.hargaProduct * productCart.quantity }}</div> 
-              <div class="col-md-3"><q-btn icon="delete_forever" @click="removeFromCart(productCart)"></q-btn></div> 
-            </div>
-        </div>
-      </div>   
-           
-          <q-btn color="blue" @click="verified = true, showCart = false">Check out</q-btn>
-        
-        <div v-show="products.length===0">
-          <p>Your Cart is Empty!</p>
-        </div>
-    </div> -->
-
-      <!-- !!!!!!!!!!!!!!! -->
-
-       <div class="cart" v-show="showCart">
-          <div v-show="products.length > 0">
-            <div class="row"> 
-              <div class="col-md-3"><b>Product Name</b></div> 
-              <div class="col-md-3"><b>Quantity</b></div> 
-              <div class="col-md-3"><b>Price</b></div> 
-              <div class="col-md-3"><b>Cancel</b></div> 
-            </div>
-            <br>
-            <q-scroll-area class="fit">
-            <div class="q-pa-sm">
-              <div v-for="n in 1" :key="n"> 
-                <div v-for="productCart in products" :key="productCart.id">
-                  <div class="row">
-                    <div class="col-md-3">{{ productCart.nameProduct }}</div> 
-                    <div class="col-md-3">{{ productCart.quantity }}</div> 
-                    <div class="col-md-3">Rp. {{ productCart.hargaProduct * productCart.quantity }}</div> 
-                    <div class="col-md-3">
-                      <!-- <div style=""> -->
-                      <q-btn @click="removeFromCart(productCart)" icon="delete_forever" style="display: inline; bottom: 30px; "></q-btn>
-                       <!-- <div @click="removeFromCart(productCart)">
-                        <input type="button" icon="delete_forever"/> -->
-                       <!-- </div> -->
-                      <!-- </div> -->
-                    </div> 
+        <br />
+        <q-scroll-area class="fit">
+          <div class="q-pa-sm">
+            <div v-for="n in 1" :key="n">
+              <div v-for="productCart in products" :key="productCart.id">
+                <div class="row">
+                  <div class="col-md-3">{{ productCart.nameProduct }}</div>
+                  <div class="col-md-3">{{ productCart.quantity }}</div>
+                  <div class="col-md-3">Rp. {{ productCart.hargaProduct * productCart.quantity }}</div>
+                  <div class="col-md-3">
+                    <q-btn
+                      @click="removeFromCart(productCart)"
+                      icon="delete_forever"
+                      style="display: inline; bottom: 30px; "
+                    ></q-btn>
                   </div>
                 </div>
               </div>
-              <q-btn color="blue"  @click="verified = true, showCart = false">Check out</q-btn> 
             </div>
-            </q-scroll-area> 
-            
-            
+            <q-btn color="blue" @click="layer1 = false, layer2 = false, layer3 = true">Check out</q-btn>
           </div>
-              
-          <div v-show="products.length===0" style=" width: 200px;
+        </q-scroll-area>
+      </div>
+
+      <div v-show="products.length===0" style=" width: 200px;
     height: 60px;">
-            <p>Your Cart is Empty!</p>
-          </div>
-          
-        </div>
+        <p>Your Cart is Empty!</p>
+      </div>
+    </div>
 
     <div class="row">
-      <div class="col-12" v-show="!verified">
+      <div class="col-12" v-show="layer1">
         <div class="q-pa-md row items-start q-gutter-md justify-center" style="margin-top:20px;">
           <q-card
             class="my-card oke"
@@ -143,42 +92,64 @@
         </div>
       </div>
 
-      <div class=".col-md-6 .offset-md-3" v-show="verified">
-        <div v-for="productnya in products" :key="productnya.id">
-          <strong>{{ productnya.nameProduct }}</strong> -
-          <strong>{{ productnya.quantity }}</strong> -
-          <strong>{{ productnya.hargaProduct * productnya.quantity }}</strong>
+      <div class=".col-md-6 .offset-md-3" v-show="layer3">
+        <div class="box">
+          <div class="head"></div>
+          <div class="body">
+            <table>
+              <tr>
+                <th>Nama Barang</th>
+                <th>Kuantiti</th>
+                <th>Jumlah</th>
+              </tr>
+              <div v-for="productnya in products" :key="productnya.id">
+                <tr>
+                  <td>{{ productnya.nameProduct }}</td>
+                  <td>{{ productnya.quantity }}</td>
+                  <td>Rp. {{ productnya.hargaProduct * productnya.quantity }}</td>
+                </tr>
+              </div>
+            </table>
+            <h5>
+              Total:
+              <span>Rp. {{ total }}</span>
+            </h5>
+          </div>
+          <div class="foot">
+            <q-btn @click="layer4 = true, layer3 = false" color="blue" icon="payment">Payment</q-btn>
+          </div>
         </div>
       </div>
-      <!-- <div class="col-4"></div> -->
+
+      <div v-show="layer4">
+        <p>oke siap</p>
+      </div>
     </div>
   </q-page>
 </template>
 
 <style lang="stylus" scoped>
- 
 .table1 {
-    font-family: sans-serif;
-    color: #232323;  
+  font-family: sans-serif;
+  color: #232323;
 }
- 
+
 .table1, th, td {
-    // border: 1px solid #999;
-    padding: 8px 20px;
-    border: 1px solid #999;
+  // border: 1px solid #999;
+  padding: 8px 20px;
+  border: 1px solid #999;
 }
 
 .kanan {
-  float: right; 
+  float: right;
 }
 
-.floatingchart{
+.floatingchart {
   float: right;
   margin-left: 90%;
-  position: fixed; 
+  position: fixed;
   z-index: 100;
 }
-
 
 .tetep {
   position: fixed;
@@ -229,6 +200,17 @@
   transform: scale(1.3);
 }
 
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
 .cart {
   > div {
     z-index: 100;
@@ -240,14 +222,18 @@
     width: 600px;
     height: 330px;
     box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);
+
     div {
       text-align: center;
     }
-    margin-top : 50px;
+
+    margin-top: 50px;
   }
+
   ul, li, p {
     margin-bottom: 0;
   }
+
   button {
     margin: 20px 0 10px;
     text-transform: uppercase;
@@ -255,6 +241,7 @@
     font-weight: bold;
     letter-spacing: 2px;
   }
+
   input {
     width: 30px;
   }
@@ -262,9 +249,6 @@
 </style>
 
 <script>
-
-
-
 import product_api from "../../../api/product/index";
 
 export default {
@@ -274,17 +258,24 @@ export default {
     return {
       dataProduct: [],
       products: [],
-      showCart: false,
-      verified: false,
-      quantity: 1
+      layer4: false,
+      layer3: false,
+      layer2: false,
+      layer1: true,
+      quantity: 1,
+      donePayment: false
     };
   },
 
   computed: {
     total() {
       var total = 0;
+      var harga;
       for (var i = 0; i < this.products.length; i++) {
-        total += this.products[i].hargaProduct;
+        harga =
+          parseInt(this.products[i].quantity) *
+          parseInt(this.products[i].hargaProduct);
+        total += harga;
       }
       return total;
     }
@@ -303,7 +294,7 @@ export default {
     },
     removeFromCart(product) {
       product.quantity -= 1;
-      if(product.quantity==0){
+      if (product.quantity == 0) {
         this.products.splice(this.products.indexOf(product), 1);
       }
     }

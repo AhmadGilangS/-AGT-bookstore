@@ -42,7 +42,14 @@ import {
   QSeparator, 
   QBtnDropdown,
   QImg,
-  ClosePopup
+  ClosePopup,
+  QPopupEdit,
+  QScrollArea, 
+  QTable,
+  QTh,
+  QTr,
+  QTd,
+  QPageSticky
 } from 'quasar'
 
 Vue.use(Quasar, {
@@ -74,7 +81,7 @@ Vue.use(Quasar, {
     QSpace,
     QCarousel,
     QCarouselSlide,
-  QCarouselControl,
+    QCarouselControl,
     QTabPanels,
     QTabPanel,
     QTab,
@@ -84,7 +91,14 @@ Vue.use(Quasar, {
     QCardActions,
     QSeparator, 
     QBtnDropdown,
-    QImg
+    QImg,
+    QPopupEdit,
+    QScrollArea,
+    QTable, 
+    QTh,
+    QTr,
+    QTd,
+    QPageSticky
   },
   directives: {
     ClosePopup

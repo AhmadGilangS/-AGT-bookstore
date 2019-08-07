@@ -1,10 +1,15 @@
 <template>
+
   <q-toolbar class="nav-margin bg-nav-custom text-black q-my-md shadow-2" style="margin-top:-1px; ">
     <router-link class="a" to="/">
-      <q-btn stretch flat class="font-black text-weight-bolder" label="AGT BOOK" />
+      <q-btn stretch flat   >
+        <div size="50px"> 
+         <img src="@/assets/new-agt.png" style="width: 80px; height: 40px;">
+        </div>
+      </q-btn>
     </router-link>
     <q-space />
-
+ 
     <div class="button">
       <q-btn-dropdown stretch flat label icon="person" class="right font-black">
         <q-list>

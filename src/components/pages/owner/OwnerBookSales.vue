@@ -90,11 +90,80 @@
 
 
 <script>
+
+import Chart from 'chart.js';
+
 export default {
   data () {
     return {
       drawer: true
     }
+  },
+  mounted(){
+    this.drawTheChart()
+    this.streamData()
+  },
+  methods: {
+    drawTheChart () {
+      let ctx = document.getElementById("streamChart").getContext('2d');
+
+      this.mChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: [this.getDateTime(), this.getDateTime()],
+          datasets:[
+            {
+              label: 'Temperature',
+              data: [this.curTemp, this.curTemp],
+              backgroundColor: 'rgba(129, 212, 250, 0.2)',
+              borderColor: 'rgba(129, 212, 250, 1)',
+              borderWidth:1
+            },
+            {
+              label: 'Humidity',
+              data: [this.curHum, this.curHum],
+              backgroundColor: 'rgba(104, 159, 56, 0.2)',
+              borderColor: 'rgba(104, 159, 56, 1)',
+              borderWidth: 1
+            }
+          ]
+        },
+        options: {
+          // animation: false,
+          legend: {
+            position: 'botom',
+            //labels: {userPointStyle: true}
+          },
+          tooltips: {
+            position: 'nearest',
+            mode: 'index'
+          },
+          scales: {
+            xAxes: [{
+              ticks: {
+                beginAtZero: true
+              },
+              display: false,
+              stacked: true
+            }],
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              },
+              display: false,
+              stacked: true
+            }]
+          }
+        }
+      });
+    },
+    getDateTime(){
+      let today = new Date ()
+      let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+      let time = today.getHours()+'-'+(today.getMinutes()+1)+'-'+today.getSeconds();
+      return date+' '+time;
+    },
+    streamData() {}
   }
 }
 </script>

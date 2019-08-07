@@ -3,26 +3,32 @@
 
     <q-btn
       id="show-modal"
-      class="kanan tetep"
+       color= 'orange'
+      class="floatingchart" 
       @click="showCart = !showCart" 
       v-show="!verified"
-      icon="shopping_cart"
       :label="products.length"
+      icon="shopping_cart"
+
     />
 
-    <div class="cart" v-show="showCart">
+    <!-- <div class="cart" v-show="showCart">
       <div v-show="products.length > 0">
-          <table>
+          <table class="table1" >
             <tr>
               <th>Nama Barang</th>
               <th>Kuantiti</th>
               <th>Jumlah</th>
+              <th>Batalkan</th>
             </tr>
+          </table>
+          <table class="table1" >
             <div v-for="productCart in products" :key="productCart.id">
               <tr>
-                <td>{{ productCart.nameProduct }}</td>
-                <td><q-btn icon="delete_forever" @click="removeFromCart(productCart)"></q-btn>  {{ productCart.quantity }} </td>
-                <td>Rp. {{ productCart.hargaProduct * productCart.quantity }}</td>
+                <td><center>{{ productCart.nameProduct }}</center></td>
+                <td><center>{{ productCart.quantity }}</center></td>
+                <td><center>Rp. {{ productCart.hargaProduct * productCart.quantity }}</center></td>
+                <td><center><q-btn icon="delete_forever" @click="removeFromCart(productCart)"></q-btn></center></td>
               </tr>
             </div>
           </table>
@@ -31,7 +37,77 @@
         <div v-show="products.length===0">
           <p>Your Cart is Empty!</p>
         </div>
-    </div>
+    </div>  -->
+      <!-- !!!!!!!!!!!!!!! -->
+
+    <!-- <div class="cart" v-show="showCart">
+      <div v-show="products.length > 0">
+        <div class="row">
+          <div class="col-md-3">Product Name</div> 
+          <div class="col-md-3">Quantity</div> 
+          <div class="col-md-3">Price</div> 
+          <div class="col-md-3">Cancel</div> 
+        </div>
+        <div class="row">
+            <div v-for="productCart in products" :key="productCart.id">
+              <div class="col-md-3">{{ productCart.nameProduct }}</div> 
+              <div class="col-md-3">{{ productCart.quantity }}</div> 
+              <div class="col-md-3">Rp. {{ productCart.hargaProduct * productCart.quantity }}</div> 
+              <div class="col-md-3"><q-btn icon="delete_forever" @click="removeFromCart(productCart)"></q-btn></div> 
+            </div>
+        </div>
+      </div>   
+           
+          <q-btn color="blue" @click="verified = true, showCart = false">Check out</q-btn>
+        
+        <div v-show="products.length===0">
+          <p>Your Cart is Empty!</p>
+        </div>
+    </div> -->
+
+      <!-- !!!!!!!!!!!!!!! -->
+
+       <div class="cart" v-show="showCart">
+          <div v-show="products.length > 0">
+            <div class="row"> 
+              <div class="col-md-3"><b>Product Name</b></div> 
+              <div class="col-md-3"><b>Quantity</b></div> 
+              <div class="col-md-3"><b>Price</b></div> 
+              <div class="col-md-3"><b>Cancel</b></div> 
+            </div>
+            <br>
+            <q-scroll-area class="fit">
+            <div class="q-pa-sm">
+              <div v-for="n in 1" :key="n"> 
+                <div v-for="productCart in products" :key="productCart.id">
+                  <div class="row">
+                    <div class="col-md-3">{{ productCart.nameProduct }}</div> 
+                    <div class="col-md-3">{{ productCart.quantity }}</div> 
+                    <div class="col-md-3">Rp. {{ productCart.hargaProduct * productCart.quantity }}</div> 
+                    <div class="col-md-3">
+                      <!-- <div style=""> -->
+                      <q-btn @click="removeFromCart(productCart)" icon="delete_forever" style="display: inline; bottom: 30px; "></q-btn>
+                       <!-- <div @click="removeFromCart(productCart)">
+                        <input type="button" icon="delete_forever"/> -->
+                       <!-- </div> -->
+                      <!-- </div> -->
+                    </div> 
+                  </div>
+                </div>
+              </div>
+              <q-btn color="blue"  @click="verified = true, showCart = false">Check out</q-btn> 
+            </div>
+            </q-scroll-area> 
+            
+            
+          </div>
+              
+          <div v-show="products.length===0" style=" width: 200px;
+    height: 60px;">
+            <p>Your Cart is Empty!</p>
+          </div>
+          
+        </div>
 
     <div class="row">
       <div class="col-12" v-show="!verified">
@@ -80,9 +156,29 @@
 </template>
 
 <style lang="stylus" scoped>
-.kanan {
-  float: right;
+ 
+.table1 {
+    font-family: sans-serif;
+    color: #232323;  
 }
+ 
+.table1, th, td {
+    // border: 1px solid #999;
+    padding: 8px 20px;
+    border: 1px solid #999;
+}
+
+.kanan {
+  float: right; 
+}
+
+.floatingchart{
+  float: right;
+  margin-left: 90%;
+  position: fixed; 
+  z-index: 100;
+}
+
 
 .tetep {
   position: fixed;
@@ -138,12 +234,16 @@
     z-index: 100;
     background: #fff;
     padding: 20px 30px;
-    position: absolute;
+    // position: absolute;
+    position: fixed;
     right: 30px;
+    width: 600px;
+    height: 330px;
     box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);
     div {
       text-align: center;
     }
+    margin-top : 50px;
   }
   ul, li, p {
     margin-bottom: 0;
@@ -162,6 +262,9 @@
 </style>
 
 <script>
+
+
+
 import product_api from "../../../api/product/index";
 
 export default {

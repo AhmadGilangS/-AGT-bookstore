@@ -23,6 +23,7 @@ import OwnerAccountSettings from "@/components/pages/owner/OwnerAccountSettings.
 import OwnerBookSales from "@/components/pages/owner/OwnerBookSales.vue";
 
 
+
 export default {
   name: "LayoutDefault",
 

@@ -49,7 +49,9 @@ import {
   QTh,
   QTr,
   QTd,
-  QPageSticky
+  QPageSticky,
+  QFab,
+  QFabAction
 } from 'quasar'
 
 Vue.use(Quasar, {
@@ -98,7 +100,9 @@ Vue.use(Quasar, {
     QTh,
     QTr,
     QTd,
-    QPageSticky
+    QPageSticky,
+    QFab,
+  QFabAction
   },
   directives: {
     ClosePopup

@@ -40,7 +40,6 @@
           </q-item>
         </q-list>
       </q-btn-dropdown>
-      <q-btn stretch flat icon="shopping_cart" label="2 items" class="font-black right"></q-btn>
       <router-link class="a" to="/catalog">
       <q-btn stretch flat label="Catalog" class="font-black-weight right"></q-btn>
       </router-link>

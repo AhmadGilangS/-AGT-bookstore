@@ -1,16 +1,38 @@
 <template>
   <q-page>
-    <q-btn class="kanan tetep" @click="verified = true" v-show="!verified" icon="shopping_cart" :label="products.length" />
 
-    <!-- <q-btn
+    <q-btn
+      id="show-modal"
       class="kanan tetep"
-      @click="verified= true"
+      @click="showCart = !showCart" 
       v-show="!verified"
       icon="shopping_cart"
       :label="products.length"
-    /> -->
+    />
 
-    <!-- {{ products.length + (products.length > 1 || products.length === 0 ? " items" : " item") }} -->
+    <div class="cart" v-show="showCart">
+      <div v-show="products.length > 0">
+          <table>
+            <tr>
+              <th>Nama Barang</th>
+              <th>Kuantiti</th>
+              <th>Jumlah</th>
+            </tr>
+            <div v-for="productCart in products" :key="productCart.id">
+              <tr>
+                <td>{{ productCart.nameProduct }}</td>
+                <td><q-btn icon="delete_forever" @click="removeFromCart(productCart)"></q-btn>  {{ productCart.quantity }} </td>
+                <td>Rp. {{ productCart.hargaProduct * productCart.quantity }}</td>
+              </tr>
+            </div>
+          </table>
+          <q-btn color="blue" @click="verified = true, showCart = false">Check out</q-btn>
+        </div>
+        <div v-show="products.length===0">
+          <p>Your Cart is Empty!</p>
+        </div>
+    </div>
+
     <div class="row">
       <div class="col-12" v-show="!verified">
         <div class="q-pa-md row items-start q-gutter-md justify-center" style="margin-top:20px;">
@@ -110,6 +132,33 @@
   -webkit-transform: scale(5);
   transform: scale(1.3);
 }
+
+.cart {
+  > div {
+    z-index: 100;
+    background: #fff;
+    padding: 20px 30px;
+    position: absolute;
+    right: 30px;
+    box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);
+    div {
+      text-align: center;
+    }
+  }
+  ul, li, p {
+    margin-bottom: 0;
+  }
+  button {
+    margin: 20px 0 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  input {
+    width: 30px;
+  }
+}
 </style>
 
 <script>
@@ -143,11 +192,17 @@ export default {
     },
     addToCart(product) {
       product.quantity += 1;
-      this.products.push(product);
+      if (this.products.indexOf(product) === -1) {
+        this.products.push(product);
+      } else {
+        console.log("masuk ok");
+      }
     },
     removeFromCart(product) {
       product.quantity -= 1;
-      this.products.splice(this.products.indexOf(product), 1);
+      if(product.quantity==0){
+        this.products.splice(this.products.indexOf(product), 1);
+      }
     }
   },
 

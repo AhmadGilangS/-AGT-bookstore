@@ -6,8 +6,7 @@ Vue.use(VueResource)
 
 export default {
     getUserByEmailAndPassword(window, email, password){
-        return getApiNoAuth()
-        .get('/login/'+email+'/'+password)
+        return getApiNoAuth().get('/login/'+email+'/'+password)
         .then(function (response){
             console.log(response)
             return response.data

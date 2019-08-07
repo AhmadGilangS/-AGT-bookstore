@@ -39,7 +39,6 @@
 
     <q-input
     filled
-    type="number"
     v-model="phone"
     label="Phone number *"
     hint="Phone Number"

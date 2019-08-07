@@ -41,7 +41,8 @@
 
 
 <script>
-import login from "../../../api/login/index";
+import login from "../../../api/login/index"
+import axios from 'axios'
 
 export default {
   data() {
@@ -52,6 +53,8 @@ export default {
   },
 
   methods: {
+
+        
     onSubmit() {
       let self = this;
 

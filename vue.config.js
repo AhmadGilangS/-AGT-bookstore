@@ -1,4 +1,14 @@
 module.exports = {
+
+  devServer:{
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8080',
+        ws: true,
+        changeOrigin: true
+      }
+    }
+  }, 
   pluginOptions: {
     quasar: {
       rtlSupport: true,
@@ -7,5 +17,7 @@ module.exports = {
   },
   transpileDependencies: [
     /[\\\/]node_modules[\\\/]quasar[\\\/]/
-  ]
+  ],
+
+  
 }

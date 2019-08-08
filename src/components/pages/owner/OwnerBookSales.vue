@@ -19,6 +19,7 @@
       <div style="margin-top:180px;">
         <!-- <q-scroll-area style="height: calc(100% - 10px); margin-top: 750px; border-right: 1px solid #ddd"> -->
           <q-list padding>
+            <router-link class="a" to="/Owner-Account-Settings" style="text-decoration:none">
             <q-item clickable v-ripple>
               <q-item-section avatar>
                 <q-icon name="account_box" />
@@ -28,7 +29,8 @@
                 Account Settings
               </q-item-section>
             </q-item>
-
+            </router-link>
+            <router-link class="a" to="/Owner-Book-Sales" style="text-decoration:none">
             <q-item clickable active v-ripple>
               <q-item-section avatar>
                 <q-icon name="store" />
@@ -38,6 +40,7 @@
                 Book Sales
               </q-item-section>
             </q-item>
+            </router-link>
 
           </q-list>
         <!-- </q-scroll-area> -->
@@ -67,9 +70,9 @@
 
         <!-- Untuk Tabel -->
           
-        <canvas id="streamChart" class="full-width" style="height: 350px;"></canvas>
+        <canvas id="streamChart" class="full-width full-height" style="height: 350px;"></canvas>
 
-        <div class="row gutter-lg q-py-xl layout-padding">
+        <div class="row  ">
             <div class="col-md-6">
                 <q-card-title>
                     <q-icon name="remove" size="64px" color="light-blue" class="q-my-md"/>
@@ -89,6 +92,7 @@
                 </q-card-main>
             </div>
         </div> 
+         <!-- Untuk Tabel -->
 
 
 

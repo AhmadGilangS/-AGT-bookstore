@@ -4,7 +4,7 @@
     <!-- <Header />  -->
     <!-- <Navbar /> -->
     <!-- <Table /> -->
-    <OwnerBookSales />
+    <router-view />
     <!-- <q-page-container>
       <div id="app">
         <router-view />

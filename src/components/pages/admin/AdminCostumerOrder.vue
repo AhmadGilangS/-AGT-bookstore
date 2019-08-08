@@ -19,7 +19,8 @@
       <div style="margin-top:180px;">
         <!-- <q-scroll-area style="height: calc(100% - 10px); margin-top: 750px; border-right: 1px solid #ddd"> -->
           <q-list padding>
-            <q-item clickable active v-ripple>
+            <router-link class="a" to="/Admin-Account-Settings" style="text-decoration:none">
+            <q-item clickable v-ripple>
               <q-item-section avatar>
                 <q-icon name="account_box" />
               </q-item-section>
@@ -28,8 +29,10 @@
                 Account Settings
               </q-item-section>
             </q-item>
+            </router-link>
 
-            <q-item clickable v-ripple>
+            <router-link class="a" to="/Admin-Costumer-Order" style="text-decoration:none">
+            <q-item clickable active v-ripple>
               <q-item-section avatar>
                 <q-icon name="assignment" />
               </q-item-section>
@@ -38,7 +41,9 @@
                 Costumer Order
               </q-item-section>
             </q-item>
+            </router-link>
 
+            <router-link class="a" to="/Admin-Order-Receipt" style="text-decoration:none">
             <q-item clickable v-ripple>
               <q-item-section avatar>
                 <q-icon name="assignment_turned_in" />
@@ -48,6 +53,7 @@
                 Order Receipt
               </q-item-section>
             </q-item>
+            </router-link>
           </q-list>
         <!-- </q-scroll-area> -->
       </div>
@@ -74,9 +80,6 @@
         <br>
         </div> 
 
-        <q-page padding>
-           
-        </q-page>
       </q-page-container>
     </q-layout>
   </div>

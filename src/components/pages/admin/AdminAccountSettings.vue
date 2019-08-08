@@ -1,10 +1,12 @@
+
 <template>
   <div class="">
-    <q-layout view="lHh Lpr lff" container style="height: 650px" class="shadow-2 rounded-borders">
+    <q-layout view="lHh Lpr lff" container style="height:750px;" class="shadow-2 rounded-borders">
       <q-header elevated class="bg-black">
         <q-toolbar>
           <q-btn flat @click="drawer = !drawer" round dense icon="menu" class="left" />
           <q-toolbar-title>Header</q-toolbar-title>
+          <q-icon name="home"></q-icon>
         </q-toolbar>
       </q-header>
 
@@ -19,7 +21,8 @@
       <div style="margin-top:180px;">
         <!-- <q-scroll-area style="height: calc(100% - 10px); margin-top: 750px; border-right: 1px solid #ddd"> -->
           <q-list padding>
-            <q-item clickable active v-ripple>
+            <router-link class="a" to="/Admin-Account-Settings" style="text-decoration:none">
+            <q-item clickable v-ripple>
               <q-item-section avatar>
                 <q-icon name="account_box" />
               </q-item-section>
@@ -28,8 +31,10 @@
                 Account Settings
               </q-item-section>
             </q-item>
+            </router-link>
 
-            <q-item clickable v-ripple>
+            <router-link class="a" to="/Admin-Costumer-Order" style="text-decoration:none">
+            <q-item clickable active v-ripple>
               <q-item-section avatar>
                 <q-icon name="assignment" />
               </q-item-section>
@@ -38,7 +43,9 @@
                 Costumer Order
               </q-item-section>
             </q-item>
+            </router-link>
 
+            <router-link class="a" to="/Admin-Order-Receipt" style="text-decoration:none">
             <q-item clickable v-ripple>
               <q-item-section avatar>
                 <q-icon name="assignment_turned_in" />
@@ -48,6 +55,7 @@
                 Order Receipt
               </q-item-section>
             </q-item>
+            </router-link>
           </q-list>
         <!-- </q-scroll-area> -->
       </div>
@@ -65,19 +73,23 @@
         </div>
       </q-drawer>
 
-
-      <q-page-container>
-           <div class="bg-primary text-white shadow-2 row" style="">
+      <q-page-container > 
+        <div class="bg-primary text-white shadow-2 row  "  >
           
           <h5>&nbsp;&nbsp;&nbsp;&nbsp;Admin Account Settings</h5>
-        <br>
-        <br>
+          <br>
+          <br>
         </div>
-        <div class="flex flex-center">
+
+        <div class="flex flex-center  " >
+          <br>
+          <br>
+          <br>
+          <br>
               <q-form
             @submit="onSubmit"
             @reset="onReset"
-            class="q-gutter-md"
+            style="margin-top: 100px;" 
           >
             <q-input
               filled
@@ -131,9 +143,9 @@
               <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
             </div>
           </q-form>
-        <q-page padding>
+        <!-- <q-page padding>
            
-        </q-page>
+        </q-page> -->
         </div>
       </q-page-container>
     </q-layout>

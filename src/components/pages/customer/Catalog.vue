@@ -2,7 +2,7 @@
   <q-page>
 
     <q-toolbar class="nav-margin bg-nav-custom text-black q-my-md shadow-2" style="margin-top:-1px; ">
-    <router-link class="a" to="/">
+    <router-link class="a" to="/homepage">
       <q-btn stretch flat   >
         <div size="50px"> 
          <img src="@/assets/new-agt.png" style="width: 80px; height: 40px;">
@@ -18,27 +18,15 @@
           <q-item-label header class="font-black">Have Account</q-item-label>
           <q-item clickable v-close-popup tabindex="0">
             <q-item-section>
-              <router-link to="/login">
-                <q-item-label class="font-black">Login</q-item-label>
+              <router-link to="/" style="text-decoration:none">
+                <q-item-label class="font-black">Logout</q-item-label>
               </router-link>
             </q-item-section>
             <q-item-section side>
-              <q-icon name="info" />
+              <q-icon name="touch_app" />
             </q-item-section>
           </q-item>
-          <q-separator inset spaced />
-
-          <q-item-label header class="font-black">Not Registered</q-item-label>
-          <q-item clickable v-close-popup tabindex="0">
-            <q-item-section>
-              <router-link to="/register">
-                <q-item-label class="font-black">Registers</q-item-label>
-              </router-link>
-            </q-item-section>
-            <q-item-section side>
-              <q-icon name="info" />
-            </q-item-section>
-          </q-item>
+          <q-separator inset spaced /> 
         </q-list>
       </q-btn-dropdown>
       <router-link class="a" to="/catalog">
@@ -182,12 +170,33 @@
               <div class="col-sm-3"> </div>
               <div class="col-sm-3"> </div>
               <div class="col-sm-3"> </div>
-              <div class="col-sm-3">
-                <q-btn
-                @click="layer4 = true, layer3 = false, createPurchase()"
-                color="blue"
-                icon="payment" 
-                >Payment</q-btn>
+              <div class="col-sm-3"> 
+                <div class="q-pa-md q-gutter-sm">
+                  <q-btn 
+                    @click="layer4 = true, persistent = true, createPurchase()"
+                    color="blue"
+                    icon="payment"  
+                    label="Payment"   
+                  />
+
+                  <q-dialog v-model="persistent" persistent transition-show="scale" transition-hide="scale">
+                    <q-card class="bg-orange text-white" style="width: 300px">
+                      <q-card-section>
+                        <div class="text-h6">Dear Pelanggan Setia,</div>
+                      </q-card-section>
+                      
+                      <q-card-section>
+                        Terimakasih Telah Berbelanja :)
+                      </q-card-section>
+
+                      <q-card-actions align="right" class="bg-white text-teal" >
+                        <router-link class="a" to="/homepage" style="text-decoration:none">
+                        <q-btn flat color="primary" label="Home" v-close-popup />
+                        </router-link>
+                      </q-card-actions>
+                    </q-card>
+                  </q-dialog>
+                </div>
               </div>
           </div>
           
@@ -199,7 +208,7 @@
       
 
       <div v-show="layer4">
-        <p>oke siap</p>
+         
       </div>
     </div>
   </q-page>
@@ -380,6 +389,7 @@ export default {
       layer3: false,
       layer2: false,
       layer1: true,
+      persistent: false,
       quantity: 1
     };
   },

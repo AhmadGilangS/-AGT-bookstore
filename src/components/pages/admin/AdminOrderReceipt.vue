@@ -4,10 +4,11 @@
     <q-layout view="lHh Lpr lff" container style="height: 750px" class="shadow-2 rounded-borders">
       <q-header elevated class="bg-black">
         <q-toolbar>
-          <q-btn flat @click="drawer = !drawer" round dense icon="menu" class="left" />
-          <q-toolbar-title>Header</q-toolbar-title>
-          <q-icon name="home"></q-icon>
+          <q-btn flat @click="drawer = !drawer" round dense icon="menu" class="left" /> 
         </q-toolbar>
+        <router-link to="/homepage" >
+          <q-icon name="home" style="font-size:28px; margin-right: 2%; margin-top: -3.4%;" class="right" ></q-icon>
+        </router-link>
       </q-header>
 
       <q-drawer
@@ -21,7 +22,7 @@
       <div style="margin-top:180px;">
         <!-- <q-scroll-area style="height: calc(100% - 10px); margin-top: 750px; border-right: 1px solid #ddd"> -->
           <q-list padding>
-            <router-link class="a" to="/Admin-Dashboard" style="text-decoration:none">
+            <router-link class="a" to="/admin-dashboard" style="text-decoration:none">
             <q-item clickable v-ripple>
               <q-item-section avatar>
                 <q-icon name="account_box" />
@@ -33,7 +34,7 @@
             </q-item>
             </router-link>
 
-            <router-link class="a" to="/Admin-Costumer-Order" style="text-decoration:none">
+            <router-link class="a" to="/admin-costumer-order" style="text-decoration:none">
             <q-item clickable v-ripple>
               <q-item-section avatar>
                 <q-icon name="assignment" />
@@ -45,7 +46,7 @@
             </q-item>
             </router-link>
 
-            <router-link class="a" to="/Admin-Order-Receipt" style="text-decoration:none">
+            <router-link class="a" to="/admin-costumer-order" style="text-decoration:none">
             <q-item clickable active v-ripple>
               <q-item-section avatar>
                 <q-icon name="assignment_turned_in" />

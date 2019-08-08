@@ -2,7 +2,7 @@
   <q-page  >
 
     <q-toolbar class="nav-margin bg-nav-custom text-black q-my-md shadow-2" style="margin-top:-1px; ">
-    <router-link class="a" to="/">
+    <router-link class="a" to="/homepage">
       <q-btn stretch flat   >
         <div size="50px"> 
          <img src="@/assets/new-agt.png" style="width: 80px; height: 40px;">
@@ -18,27 +18,15 @@
           <q-item-label header class="font-black">Have Account</q-item-label>
           <q-item clickable v-close-popup tabindex="0">
             <q-item-section>
-              <router-link to="/login">
-                <q-item-label class="font-black">Login</q-item-label>
+              <router-link to="/" style="text-decoration:none">
+                <q-item-label class="font-black">Logout</q-item-label>
               </router-link>
             </q-item-section>
             <q-item-section side>
-              <q-icon name="info" />
+              <q-icon name="touch_app" />
             </q-item-section>
           </q-item>
-          <q-separator inset spaced />
-
-          <q-item-label header class="font-black">Not Registered</q-item-label>
-          <q-item clickable v-close-popup tabindex="0">
-            <q-item-section>
-              <router-link to="/register">
-                <q-item-label class="font-black">Registers</q-item-label>
-              </router-link>
-            </q-item-section>
-            <q-item-section side>
-              <q-icon name="info" />
-            </q-item-section>
-          </q-item>
+          <q-separator inset spaced /> 
         </q-list>
       </q-btn-dropdown>
       <router-link class="a" to="/catalog">

@@ -30,6 +30,15 @@
             <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
           </div>
         </q-form>
+        <br>
+        <br>
+          <router-link to="/register">
+            <center>Not Registered?</center>
+          </router-link>
+        <br>
+        <br>
+        <br>
+        <br>
       </div>
     </div>
   </q-page>
@@ -80,7 +89,7 @@ export default {
               self.$router.push("/owner-Dashboard");
             }
             else if((result.roles=="admin")) {
-              self.$router.push("/admin-Dashboard");
+              self.$router.push("/admin-dashboard");
             }
             else {
               self.$router.push("/catalog")

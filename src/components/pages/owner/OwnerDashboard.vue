@@ -6,7 +6,9 @@
         <q-toolbar>
           <q-btn flat @click="drawer = !drawer" round dense icon="menu" class="left" />
           <q-toolbar-title>Header</q-toolbar-title>
-          <q-icon name="home"></q-icon>
+          <router-link class="a" to="/" style="text-decoration:none">
+          <q-icon name="home" class="left"/>
+          </router-link>
         </q-toolbar>
       </q-header>
 

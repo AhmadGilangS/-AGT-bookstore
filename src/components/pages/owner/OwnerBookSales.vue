@@ -6,6 +6,7 @@
           <q-btn flat @click="drawer = !drawer" round dense icon="menu" class="left" />
           <q-toolbar-title>Header</q-toolbar-title>
         </q-toolbar>
+        <q-icon name="home"></q-icon>
       </q-header>
 
       <q-drawer
@@ -43,7 +44,7 @@
             </router-link>
 
           </q-list>
-        <!-- </q-scroll-area> -->
+       <!-- </q-scroll-area> -->
       </div>
         <div class="absolute-top" > 
           <img src="@/assets/bg-ava-cms.png" style="height: 165px">

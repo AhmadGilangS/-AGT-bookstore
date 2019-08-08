@@ -34,7 +34,7 @@
             </router-link>
 
             <router-link class="a" to="/Admin-Costumer-Order" style="text-decoration:none">
-            <q-item clickable active v-ripple>
+            <q-item clickable v-ripple>
               <q-item-section avatar>
                 <q-icon name="assignment" />
               </q-item-section>
@@ -46,7 +46,7 @@
             </router-link>
 
             <router-link class="a" to="/Admin-Order-Receipt" style="text-decoration:none">
-            <q-item clickable v-ripple>
+            <q-item clickable active v-ripple>
               <q-item-section avatar>
                 <q-icon name="assignment_turned_in" />
               </q-item-section>

@@ -22,7 +22,7 @@
         <!-- <q-scroll-area style="height: calc(100% - 10px); margin-top: 750px; border-right: 1px solid #ddd"> -->
           <q-list padding>
             <router-link class="a" to="/Admin-Dashboard" style="text-decoration:none">
-            <q-item clickable v-ripple>
+            <q-item clickable active v-ripple>
               <q-item-section avatar>
                 <q-icon name="account_box" />
               </q-item-section>
@@ -34,7 +34,7 @@
             </router-link>
 
             <router-link class="a" to="/Admin-Costumer-Order" style="text-decoration:none">
-            <q-item clickable active v-ripple>
+            <q-item clickable v-ripple>
               <q-item-section avatar>
                 <q-icon name="assignment" />
               </q-item-section>

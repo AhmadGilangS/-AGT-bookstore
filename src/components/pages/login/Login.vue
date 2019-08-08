@@ -75,7 +75,7 @@ export default {
               icon: "fas fa-check-circle",
               message: "you are logged!"
             });
-            self.$router.push("register");
+            self.$router.push("/");
           }
           return result;
       })

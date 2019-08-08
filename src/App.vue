@@ -1,13 +1,15 @@
 <template>
   <q-layout>
     <!-- <AdminAccountSettings /> -->
-    <Header /> 
-    <Navbar />
-    <q-page-container>
+    <!-- <Header />  -->
+    <!-- <Navbar /> -->
+    <!-- <Table /> -->
+    <OwnerBookSales />
+    <!-- <q-page-container>
       <div id="app">
         <router-view />
       </div>
-    </q-page-container>
+    </q-page-container> -->
     <Footer />  
   </q-layout>
 </template>
@@ -21,6 +23,8 @@ import AdminCostumerOrder from "@/components/pages/admin/AdminCostumerOrder.vue"
 import AdminOrderReceipt from "@/components/pages/admin/AdminOrderReceipt.vue";
 import OwnerAccountSettings from "@/components/pages/owner/OwnerAccountSettings.vue";
 import OwnerBookSales from "@/components/pages/owner/OwnerBookSales.vue";
+
+import Table from "@/components/pages/owner/Table.vue";
 
 
 
@@ -36,7 +40,7 @@ export default {
     AdminOrderReceipt,
     OwnerBookSales,
     OwnerAccountSettings,
-    
+    Table
   },
 
   data() {

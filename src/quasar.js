@@ -103,7 +103,7 @@ Vue.use(Quasar, {
     QTd,
     QPageSticky,
     QFab,
-  QFabAction
+    QFabAction
   },
   directives: {
     ClosePopup,

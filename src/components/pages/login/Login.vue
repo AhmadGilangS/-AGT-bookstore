@@ -77,10 +77,10 @@ export default {
             });
             console.log(result.roles)
             if ((result.roles=="owner")) {
-              self.$router.push("/owner");
+              self.$router.push("/owner-Dashboard");
             }
             else if((result.roles=="admin")) {
-              self.$router.push("/admin");
+              self.$router.push("/admin-Dashboard");
             }
             else {
               self.$router.push("/catalog")

@@ -51,7 +51,8 @@ import {
   QTd,
   QPageSticky,
   QFab,
-  QFabAction
+  QFabAction,
+  Ripple
 } from 'quasar'
 
 Vue.use(Quasar, {
@@ -102,10 +103,11 @@ Vue.use(Quasar, {
     QTd,
     QPageSticky,
     QFab,
-  QFabAction
+    QFabAction
   },
   directives: {
-    ClosePopup
+    ClosePopup,
+    Ripple
   },
   plugins: {
     Notify

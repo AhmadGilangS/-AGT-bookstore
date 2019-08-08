@@ -27,7 +27,7 @@
 
           <q-input
             filled
-            v-model="password"
+            v-model="pass"
             label="Password *"
             hint="User Password"
             lazy-rules
@@ -69,6 +69,9 @@
 </style>
 
 <script>
+import register from "../../../api/register/index"
+import axios from 'axios'
+
 export default {
   data() {
     return {
@@ -92,11 +95,11 @@ export default {
           sortable: true
         },
         {
-          name: "password",
+          name: "pass",
           required: true,
           label: "Password",
           align: "left",
-          field: row => row.password,
+          field: row => row.pass,
           format: val => `${val}`,
           sortable: true
         },
@@ -117,14 +120,25 @@ export default {
           field: row => row.address,
           format: val => `${val}`,
           sortable: true
+        },
+        {
+          name: "roles",
+          required: true,
+          label: "roles",
+          align: "left",
+          field: row => row.roles,
+          format: val => `${val}`,
+          sortable: true
         }
       ],
+      
 
       fullname: "",
       email: "",
-      password: "",
+      pass: "",
       phone: "",
       address: "",
+      roles:"customer",
       accept: "true"
     };
   },
@@ -142,12 +156,13 @@ export default {
         let param = {
           fullname: this.fullname,
           email: this.email,
-          password: this.password,
+          pass: this.pass,
           phone: this.phone,
-          address: this.address
+          address: this.address,
+          roles: this.roles
         };
         const self = this;
-        Employee.submitNewEmployee(window, param)
+        register.submitNewUser(window, param)
           .then(function(result) {
             return result;
           })
@@ -160,14 +175,16 @@ export default {
           icon: "fas fa-check-circle",
           message: "Submitted"
         });
+        self.$router.push("/");
       }
     },
 
     onReset() {
-      this.firstName = null;
-      this.lastName = null;
+      this.fullname = null;
       this.email = null;
+      this.pass = null;
       this.phone = null;
+      this.address = null;
       this.accept = false;
     }
   }

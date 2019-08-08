@@ -41,27 +41,27 @@
 
 
 <script>
-import login from "../../../api/login/index"
-import axios from 'axios'
+import login from "../../../api/login/index";
+import axios from "axios";
 
 export default {
   data() {
     return {
       email: "",
-      password: ""
+      password: "",
+      roles: ""
     };
   },
 
   methods: {
-
-        
     onSubmit() {
       let self = this;
 
-      login.getUserByEmailAndPassword(window, self.email, self.password)
-      .then(function(result){
-        console.log(result)
-        if (!result) {
+      login
+        .getUserByEmailAndPassword(window, self.email, self.password)
+        .then(function(result) {
+          console.log(result);
+          if (!result) {
             self.$q.notify({
               color: "red-5",
               textColor: "white",
@@ -75,20 +75,29 @@ export default {
               icon: "fas fa-check-circle",
               message: "you are logged!"
             });
-            self.$router.push("/");
+            console.log(result.roles)
+            if ((result.roles=="owner")) {
+              self.$router.push("/owner");
+            }
+            else if((result.roles=="admin")) {
+              self.$router.push("/admin");
+            }
+            else {
+              self.$router.push("/catalog")
+            }
           }
           return result;
-      })
-      .catch(function(err) {
-        console.log(err);
-      });
-
+        })
+        .catch(function(err) {
+          console.log(err);
+        });
     },
 
     onReset() {
       this.email = null;
       this.password = null;
-    }
+    },
+
   }
 };
 </script>

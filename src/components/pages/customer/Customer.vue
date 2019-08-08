@@ -92,34 +92,45 @@
         </div>
       </div>
 
-      <div class=".col-md-6 .offset-md-3" v-show="layer3">
-        <div class="box">
-          <div class="head"></div>
-          <div class="body">
-            <table>
-              <tr>
-                <th>Nama Barang</th>
-                <th>Kuantiti</th>
-                <th>Jumlah</th>
-              </tr>
-              <div v-for="productnya in products" :key="productnya.id">
-                <tr>
-                  <td>{{ productnya.nameProduct }}</td>
-                  <td>{{ productnya.quantity }}</td>
-                  <td>Rp. {{ productnya.hargaProduct * productnya.quantity }}</td>
-                </tr>
-              </div>
-            </table>
-            <h5>
-              Total:
-              <span>Rp. {{ total }}</span>
-            </h5>
+      <div class="checkout" v-show="layer3">
+        <div class="row">
+          <div class="col-md-3">
+            <b>Product Name</b>
           </div>
-          <div class="foot">
-            <q-btn @click="layer4 = true, layer3 = false" color="blue" icon="payment">Payment</q-btn>
+          <div class="col-md-3">
+            <b>Quantity</b>
+          </div>
+          <div class="col-md-3">
+            <b>Price</b>
+          </div>
+          <div class="col-md-3">
+            <b>Total Price</b>
           </div>
         </div>
+        <div class="q-pa-sm">
+          <div v-for="productnya in products" :key="productnya.id">
+            <div class="row">
+              <div class="col-md-3">{{ productnya.nameProduct }}</div>
+              <div class="col-md-3">{{ productnya.quantity }}</div>
+              <div class="col-md-3">Rp. {{ productnya.hargaProduct }}</div>
+              <div class="col-md-3">Rp. {{ productnya.hargaProduct * productnya.quantity }}</div>
+            </div>
+
+            <div class="row">
+              <div class=".col-md-3 .offset-md-9">TOTAL Rp. {{ total }}</div>
+            </div>
+          </div>
+          <q-btn
+              @click="layer4 = true, layer3 = false, createPurchase()"
+              color="blue"
+              icon="payment"
+            >Payment</q-btn>
+        </div>
+
+        
       </div>
+
+      
 
       <div v-show="layer4">
         <p>oke siap</p>
@@ -211,6 +222,40 @@ th, td {
   border-bottom: 1px solid #ddd;
 }
 
+.checkout {
+  > div {
+    background: #fff;
+    padding: 20px 30px;
+    position: absolute;
+    position: fixed;
+    right: 30px;
+    width: 65%;
+    box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);
+
+    div {
+      text-align: center;
+    }
+
+    margin-top: 50px;
+  }
+
+  ul, li, p {
+    margin-bottom: 0;
+  }
+
+  button {
+    margin: 20px 0 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
+  input {
+    width: 30px;
+  }
+}
+
 .cart {
   > div {
     z-index: 100;
@@ -219,8 +264,8 @@ th, td {
     // position: absolute;
     position: fixed;
     right: 30px;
-    width: 600px;
-    height: 330px;
+    width: 50%;
+    height: 65%;
     box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);
 
     div {
@@ -250,6 +295,7 @@ th, td {
 
 <script>
 import product_api from "../../../api/product/index";
+import purchase_api from "../../../api/purchase/index";
 
 export default {
   name: "Customer",
@@ -262,8 +308,7 @@ export default {
       layer3: false,
       layer2: false,
       layer1: true,
-      quantity: 1,
-      donePayment: false
+      quantity: 1
     };
   },
 
@@ -297,6 +342,30 @@ export default {
       if (product.quantity == 0) {
         this.products.splice(this.products.indexOf(product), 1);
       }
+    },
+    createPurchase() {
+      var idprod = [];
+      var qtyprod = [];
+      for (let i = 0; i < this.products.length; i++) {
+        idprod[i] = this.products[i].id;
+        qtyprod[i] = this.products[i].quantity;
+      }
+      let param = {
+        idCustomer: "gina",
+        idProduct: idprod,
+        qtyProduct: qtyprod,
+        totalPayment: this.total,
+        status: "requested"
+      };
+      //console.log(param)
+      purchase_api
+        .postPurchase(window, param)
+        .then(function(result) {
+          return result;
+        })
+        .catch(function(err) {
+          console.log(err);
+        });
     }
   },
 

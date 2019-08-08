@@ -21,7 +21,7 @@
       <div style="margin-top:180px;">
         <!-- <q-scroll-area style="height: calc(100% - 10px); margin-top: 750px; border-right: 1px solid #ddd"> -->
           <q-list padding>
-            <router-link class="a" to="/Owner-Account-Settings" style="text-decoration:none">
+            <router-link class="a" to="/Owner-Dashboard" style="text-decoration:none">
             <q-item clickable active v-ripple>
               <q-item-section avatar>
                 <q-icon name="account_box" />

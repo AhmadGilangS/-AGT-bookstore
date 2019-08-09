@@ -69,8 +69,8 @@
 </style>
 
 <script>
-import register from "../../../api/register/index"
-import axios from 'axios'
+import register from "../../../api/register/index";
+import axios from "axios";
 
 export default {
   data() {
@@ -131,14 +131,13 @@ export default {
           sortable: true
         }
       ],
-      
 
       fullname: "",
       email: "",
       pass: "",
       phone: "",
       address: "",
-      roles:"customer",
+      roles: "customer",
       accept: "true"
     };
   },
@@ -162,7 +161,8 @@ export default {
           roles: this.roles
         };
         const self = this;
-        register.submitNewUser(window, param)
+        register
+          .submitNewUser(window, param)
           .then(function(result) {
             return result;
           })

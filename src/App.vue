@@ -2,14 +2,14 @@
   <q-layout>
     <!-- <AdminAccountSettings /> -->
     <!-- <Header />  -->
-    <!-- <Navbar /> -->
+    <Navbar />
     <!-- <Table /> -->
-    <OwnerBookSales />
-    <!-- <q-page-container>
+    <!-- <OwnerBookSales /> -->
+    <q-page-container>
       <div id="app">
         <router-view />
       </div>
-    </q-page-container> -->
+    </q-page-container>
     <Footer />  
   </q-layout>
 </template>

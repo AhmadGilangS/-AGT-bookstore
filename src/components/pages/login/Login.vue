@@ -75,15 +75,13 @@ export default {
               icon: "fas fa-check-circle",
               message: "you are logged!"
             });
-            console.log(result.roles)
-            if ((result.roles=="owner")) {
+            console.log(result.roles);
+            if (result.roles == "owner") {
               self.$router.push("/owner");
-            }
-            else if((result.roles=="admin")) {
+            } else if (result.roles == "admin") {
               self.$router.push("/admin");
-            }
-            else {
-              self.$router.push("/catalog")
+            } else {
+              self.$router.push("/catalog");
             }
           }
           return result;
@@ -96,8 +94,7 @@ export default {
     onReset() {
       this.email = null;
       this.password = null;
-    },
-
+    }
   }
 };
 </script>

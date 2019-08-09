@@ -3,7 +3,7 @@ import axios from 'axios'
 const API_URL_SB = 'http://localhost:8080/api/v1';
 const API_URL_LB = 'http://localhost:3000/api/'
 
-export function getApiNoAuthLB(){
+export function getApiNoAuthLB() {
     return axios.create({
         baseURL: API_URL_LB,
         timeout: 10000,
@@ -15,8 +15,8 @@ export function getApiNoAuthLB(){
     })
 }
 
-export function getApiLB(token, params){
-    if(params){ params.access_token = token } else {
+export function getApiLB(token, params) {
+    if (params) { params.access_token = token } else {
         params = {
             access_token: token
         }
@@ -33,19 +33,19 @@ export function getApiLB(token, params){
     })
 }
 
-export function getApiNoAuthSB(){
+export function getApiNoAuthSB() {
     return axios.create({
         baseURL: API_URL_SB,
         timeout: 10000,
         headers: {
             'Access-Control-Allow-Origin': '*',
-       
+
         }
     })
 }
 
-export function getApiSB(token, params){
-    if(params){ params.access_token = token } else {
+export function getApiSB(token, params) {
+    if (params) { params.access_token = token } else {
         params = {
             access_token: token
         }

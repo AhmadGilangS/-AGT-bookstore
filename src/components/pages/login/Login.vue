@@ -30,6 +30,15 @@
             <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
           </div>
         </q-form>
+        <br>
+        <br>
+          <router-link to="/register">
+            <center>Not Registered?</center>
+          </router-link>
+        <br>
+        <br>
+        <br>
+        <br>
       </div>
     </div>
   </q-page>
@@ -75,13 +84,15 @@ export default {
               icon: "fas fa-check-circle",
               message: "you are logged!"
             });
-            console.log(result.roles);
-            if (result.roles == "owner") {
-              self.$router.push("/owner");
-            } else if (result.roles == "admin") {
-              self.$router.push("/admin");
-            } else {
-              self.$router.push("/catalog");
+            console.log(result.roles)
+            if ((result.roles=="owner")) {
+              self.$router.push("/owner-Dashboard");
+            }
+            else if((result.roles=="admin")) {
+              self.$router.push("/admin-dashboard");
+            }
+            else {
+              self.$router.push("/catalog")
             }
           }
           return result;

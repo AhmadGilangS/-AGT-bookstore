@@ -59,6 +59,15 @@
             <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
           </div>
         </q-form>
+        <br>
+        <br>
+          <router-link to="/login">
+            <center>Already Have an Account?</center>
+          </router-link>
+        <br>
+        <br>
+        <br>
+        <br>
       </div>
     </div>
   </q-page>

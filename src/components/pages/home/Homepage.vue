@@ -1,6 +1,41 @@
-<template>
-
+<template> 
   <q-page  >
+
+    <q-toolbar class="nav-margin bg-nav-custom text-black q-my-md shadow-2" style="margin-top:-1px; ">
+    <router-link class="a" to="/homepage">
+      <q-btn stretch flat   >
+        <div size="50px"> 
+         <img src="@/assets/new-agt.png" style="width: 80px; height: 40px;">
+        </div>
+      </q-btn>
+    </router-link>
+    <q-space />
+ 
+    <div class="button">
+      <q-btn-dropdown stretch flat label icon="person" class="right font-black">
+        <q-list>
+          <q-separator inset spaced />
+          <q-item-label header class="font-black">Have Account</q-item-label>
+          <q-item clickable v-close-popup tabindex="0">
+            <q-item-section>
+              <router-link to="/" style="text-decoration:none">
+                <q-item-label class="font-black">Logout</q-item-label>
+              </router-link>
+            </q-item-section>
+            <q-item-section side>
+              <q-icon name="touch_app" />
+            </q-item-section>
+          </q-item>
+          <q-separator inset spaced /> 
+        </q-list>
+      </q-btn-dropdown>
+      <router-link class="a" to="/catalog">
+      <q-btn stretch flat label="Catalog" class="font-black-weight right"></q-btn>
+      </router-link>
+    </div>
+ 
+  </q-toolbar>
+    
 
     <div class="row flex flex-center">
       <div class="col-md-6">
@@ -41,8 +76,6 @@
   </div>
 
   </div>
-
-  
 
   
      <div class="q-pa-md">

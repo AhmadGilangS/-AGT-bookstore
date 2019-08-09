@@ -1,5 +1,41 @@
 <template>
   <q-page>
+
+    <q-toolbar class="nav-margin bg-nav-custom text-black q-my-md shadow-2" style="margin-top:-1px; ">
+    <router-link class="a" to="/homepage">
+      <q-btn stretch flat   >
+        <div size="50px"> 
+         <img src="@/assets/new-agt.png" style="width: 80px; height: 40px;">
+        </div>
+      </q-btn>
+    </router-link>
+    <q-space />
+ 
+    <div class="button">
+      <q-btn-dropdown stretch flat label icon="person" class="right font-black">
+        <q-list>
+          <q-separator inset spaced />
+          <q-item-label header class="font-black">Have Account</q-item-label>
+          <q-item clickable v-close-popup tabindex="0">
+            <q-item-section>
+              <router-link to="/" style="text-decoration:none">
+                <q-item-label class="font-black">Logout</q-item-label>
+              </router-link>
+            </q-item-section>
+            <q-item-section side>
+              <q-icon name="touch_app" />
+            </q-item-section>
+          </q-item>
+          <q-separator inset spaced /> 
+        </q-list>
+      </q-btn-dropdown>
+      <router-link class="a" to="/catalog">
+      <q-btn stretch flat label="Catalog" class="font-black-weight right"></q-btn>
+      </router-link>
+    </div>
+ 
+  </q-toolbar>
+
     <div>
       <q-btn
         id="show-modal"
@@ -34,10 +70,10 @@
             <div v-for="n in 1" :key="n">
               <div v-for="productCart in products" :key="productCart.id">
                 <div class="row">
-                  <div class="col-md-3">{{ productCart.nameProduct }}</div>
-                  <div class="col-md-3">{{ productCart.quantity }}</div>
-                  <div class="col-md-3">Rp. {{ productCart.hargaProduct * productCart.quantity }}</div>
-                  <div class="col-md-3">
+                  <div class="col-sm-3">{{ productCart.nameProduct }}</div>
+                  <div class="col-sm-3">{{ productCart.quantity }}</div>
+                  <div class="col-sm-3">Rp. {{ productCart.hargaProduct * productCart.quantity }}</div>
+                  <div class="col-sm-3">
                     <q-btn
                       @click="removeFromCart(productCart)"
                       icon="delete_forever"
@@ -91,8 +127,10 @@
           </q-card>
         </div>
       </div>
-
-      <div class="checkout" v-show="layer3">
+<!-- Layer 3 -->
+      <div class="checkout3" style="" v-show="layer3">
+        <br>
+        <br>
         <div class="row">
           <div class="col-md-3">
             <b>Product Name</b>
@@ -107,24 +145,61 @@
             <b>Total Price</b>
           </div>
         </div>
-        <div class="q-pa-sm">
+        <br>
+        <br>
+        <div class="">
           <div v-for="productnya in products" :key="productnya.id">
             <div class="row">
               <div class="col-md-3">{{ productnya.nameProduct }}</div>
               <div class="col-md-3">{{ productnya.quantity }}</div>
               <div class="col-md-3">Rp. {{ productnya.hargaProduct }}</div>
               <div class="col-md-3">Rp. {{ productnya.hargaProduct * productnya.quantity }}</div>
-            </div>
-
-            <div class="row">
-              <div class=".col-md-3 .offset-md-9">TOTAL Rp. {{ total }}</div>
-            </div>
+            </div> 
           </div>
-          <q-btn
-              @click="layer4 = true, layer3 = false, createPurchase()"
-              color="blue"
-              icon="payment"
-            >Payment</q-btn>
+          <br>
+          <br>
+          <div class="row">
+              <div class="col-sm-3"> </div>
+              <div class="col-sm-3"> </div>
+              <div class="col-sm-3"><b>Total Belanja</b></div>
+              <div class="col-sm-3">Rp. {{ total }}</div>
+          </div>
+          <br>
+          <br>
+          <div class="row">
+              <div class="col-sm-3"> </div>
+              <div class="col-sm-3"> </div>
+              <div class="col-sm-3"> </div>
+              <div class="col-sm-3"> 
+                <div class="q-pa-md q-gutter-sm">
+                  <q-btn 
+                    @click="layer4 = true, persistent = true, createPurchase()"
+                    color="blue"
+                    icon="payment"  
+                    label="Payment"   
+                  />
+
+                  <q-dialog v-model="persistent" persistent transition-show="scale" transition-hide="scale">
+                    <q-card class="bg-orange text-white" style="width: 300px">
+                      <q-card-section>
+                        <div class="text-h6">Dear Pelanggan Setia,</div>
+                      </q-card-section>
+                      
+                      <q-card-section>
+                        Terimakasih Telah Berbelanja :)
+                      </q-card-section>
+
+                      <q-card-actions align="right" class="bg-white text-teal" >
+                        <router-link class="a" to="/homepage" style="text-decoration:none">
+                        <q-btn flat color="primary" label="Home" v-close-popup />
+                        </router-link>
+                      </q-card-actions>
+                    </q-card>
+                  </q-dialog>
+                </div>
+              </div>
+          </div>
+          
         </div>
 
         
@@ -133,7 +208,7 @@
       
 
       <div v-show="layer4">
-        <p>oke siap</p>
+         
       </div>
     </div>
   </q-page>
@@ -222,25 +297,31 @@ th, td {
   border-bottom: 1px solid #ddd;
 }
 
+.checkout3{
+  height:800px; 
+  width:800px; 
+  margin-left:25%;
+} 
+
 .checkout {
   > div {
-    background: #fff;
-    padding: 20px 30px;
+    // background: #fff;
+    // padding: 20px 30px;
     position: absolute;
-    position: fixed;
-    right: 30px;
-    width: 65%;
-    box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);
+    // position: fixed;
+    // right: 30px;
+    // width: 65%;
+    // box-shadow: 2px 2px 6px 0 rgba(0, 0, 0, 0.3);
 
     div {
-      text-align: center;
+      // text-align: center;
     }
 
-    margin-top: 50px;
+    // margin-top: 50px;
   }
 
   ul, li, p {
-    margin-bottom: 0;
+    // margin-bottom: 0;
   }
 
   button {
@@ -308,6 +389,7 @@ export default {
       layer3: false,
       layer2: false,
       layer1: true,
+      persistent: false,
       quantity: 1
     };
   },

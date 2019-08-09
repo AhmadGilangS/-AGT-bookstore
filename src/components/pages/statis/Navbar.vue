@@ -52,36 +52,36 @@
   </q-toolbar>
 </template>
 <style>
-.button {
-  width: 100%;
-}
-.left {
-  float: left;
-  display: block;
-}
-.right {
-  float: right;
-  display: block;
-}
-.button ul a {
-  padding: 10px;
-  background: rgb(116, 181, 12);
-  color: white;
-}
+    .button {
+      width: 100%;
+    }
+    .left {
+      float: left;
+      display: block;
+    }
+    .right {
+      float: right;
+      display: block;
+    }
+    .button ul a {
+      padding: 10px;
+      background: rgb(116, 181, 12);
+      color: white;
+    }
 
-.bg-nav-custom {
-   background:#fff649; /* #ffe470;  #ffeb3b; */
-  height: 70px;
-}
+    .bg-nav-custom {
+      background:#fff649; /* #ffe470;  #ffeb3b; */
+      height: 70px;
+    }
 
-.font-black {
-  color: black;
-}
+    .font-black {
+      color: black;
+    }
 
 
-.a{
-  color: black;
-}
+    .a{
+      color: black;
+    }
 
 
 </style>

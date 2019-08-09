@@ -1,12 +1,14 @@
 
 <template>
   <div class="">
-    <q-layout view="lHh Lpr lff" container style="height: 655px" class="shadow-2 rounded-borders">
+    <q-layout view="lHh Lpr lff" container style="height:800px;" class="shadow-2 rounded-borders">
       <q-header elevated class="bg-black">
         <q-toolbar>
-          <q-btn flat @click="drawer = !drawer" round dense icon="menu" class="left" />
-          <q-toolbar-title>Header</q-toolbar-title>
+          <q-btn flat @click="drawer = !drawer" round dense icon="menu" class="left" /> 
         </q-toolbar>
+        <router-link to="/homepage" >
+          <q-icon name="home" style="font-size:28px; margin-right: 2%; margin-top: -3.4%;" class="right" ></q-icon>
+        </router-link>
       </q-header>
 
       <q-drawer
@@ -20,6 +22,7 @@
       <div style="margin-top:180px;">
         <!-- <q-scroll-area style="height: calc(100% - 10px); margin-top: 750px; border-right: 1px solid #ddd"> -->
           <q-list padding>
+            <router-link class="a" to="/owner-dashboard" style="text-decoration:none">
             <q-item clickable active v-ripple>
               <q-item-section avatar>
                 <q-icon name="account_box" />
@@ -29,7 +32,8 @@
                 Account Settings
               </q-item-section>
             </q-item>
-
+            </router-link>
+            <router-link class="a" to="/owner-book-sales" style="text-decoration:none">
             <q-item clickable v-ripple>
               <q-item-section avatar>
                 <q-icon name="store" />
@@ -39,9 +43,10 @@
                 Book Sales
               </q-item-section>
             </q-item>
+            </router-link>
 
           </q-list>
-        <!-- </q-scroll-area> -->
+       <!-- </q-scroll-area> -->
       </div>
         <div class="absolute-top" > 
           <img src="@/assets/bg-ava-cms.png" style="height: 165px">
@@ -58,17 +63,22 @@
       </q-drawer>
 
       <q-page-container > 
-        <div class="bg-primary text-white shadow-2 row" style="">
+        <div class="bg-primary text-white shadow-2 row  "  >
           
           <h5>&nbsp;&nbsp;&nbsp;&nbsp;Owner Account Settings</h5>
-        <br>
-        <br>
+          <br>
+          <br>
         </div>
-        <div class="flex flex-center">
+
+        <div class="flex flex-center  " >
+          <br>
+          <br>
+          <br>
+          <br>
               <q-form
             @submit="onSubmit"
             @reset="onReset"
-            class="q-gutter-md"
+            style="margin-top: 100px;" 
           >
             <q-input
               filled
@@ -122,9 +132,9 @@
               <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
             </div>
           </q-form>
-        <q-page padding>
+        <!-- <q-page padding>
            
-        </q-page>
+        </q-page> -->
         </div>
       </q-page-container>
     </q-layout>

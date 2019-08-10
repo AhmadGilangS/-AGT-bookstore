@@ -112,7 +112,7 @@
 
               <q-input
               filled
-              v-model="password"
+              v-model="pass"
               label="Password *"
               hint="User Password"
               lazy-rules
@@ -179,7 +179,7 @@ export default {
       age: null,
       fullname:'',
       email:'',
-      password:'',
+      pass:'',
       phone:'',
       address:'',
       accept:'true',

@@ -17,7 +17,7 @@
 
           <q-input
             filled
-            v-model="password"
+            v-model="pass"
             label="Password *"
             hint="Your Password"
             type="password"
@@ -57,7 +57,7 @@ export default {
   data() {
     return {
       email: "",
-      password: "",
+      pass: "",
       roles: ""
     };
   },
@@ -67,7 +67,7 @@ export default {
       let self = this;
 
       login
-        .getUserByEmailAndPassword(window, self.email, self.password)
+        .getUserByEmailAndPass(window, self.email, self.pass)
         .then(function(result) {
           console.log(result);
           if (!result) {
@@ -104,7 +104,7 @@ export default {
 
     onReset() {
       this.email = null;
-      this.password = null;
+      this.pass = null;
     }
   }
 };
